@@ -13,6 +13,8 @@
 header{
 display: flex;
 flex-direction:row;
+position: sticky;
+top: 0;
 justify-content: space-evenly;
 align-items: center;
 padding: 20px;
@@ -50,13 +52,12 @@ header div ul li{
 }
 button{
     background-color: rgb(255, 158, 1);
- 
     font-size: medium;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     font-weight: bolder;
     cursor: pointer;
-  
+     outline: none;
     box-shadow: 2px 5px 5px 0px rgb(166, 207, 1);
 }
 .hero button{
@@ -68,4 +69,25 @@ button{
     header h1{
         font-size: 1.3rem;
     }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-top: 3px solid rgb(255, 158, 1);
+}
+.social-media .social-icon{
+     color: rgb(255, 158, 1);
+     font-size: 1.5rem;
+     margin: 3px;
+         transition: transform 0.6s ease;
+
+}
+.social-media .social-icon:hover{
+ transform: scale(1.2) translateY(-5px); 
+ color: rgb(166, 207, 1);
 }
