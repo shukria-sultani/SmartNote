@@ -1,6 +1,11 @@
-
+import { NavLink } from 'react-router-dom';
 import { LuNotebookText } from 'react-icons/lu';
-export default function Header()
+export default function Header(){
+
+const activeLink = ({isActive}) =>
+{
+  isActive ? "active" : ""
+}
 {
      return(
         <>
@@ -9,12 +14,14 @@ export default function Header()
             <div>
               
                 <ul>
-                    <li>Home</li>
-                    <li>My Notes</li>
+                    <li className={activeLink}><NavLink to="/">Home</NavLink></li>
+                    <li className={activeLink}><NavLink to="/notes">My Notes</NavLink> </li>
                 </ul>
             </div>
    </header>
             
      </>
      )
+}
+
 }

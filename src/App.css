@@ -32,6 +32,16 @@ header div ul{
 header div ul li{
     list-style-type: none;
     font-size: large;
+
+}
+header div ul li a{
+         text-decoration: none;
+    color: black;
+}
+header div ul .active{
+    background-color: rgb(255, 158, 1);
+    border-radius: 10px;
+    padding: 7px 14px;
 }
 .hero{
  display: flex;
@@ -78,7 +88,7 @@ footer{
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    border-top: 3px solid rgb(255, 158, 1);
+  
 }
 .social-media .social-icon{
      color: rgb(255, 158, 1);
