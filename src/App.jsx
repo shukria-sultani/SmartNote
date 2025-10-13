@@ -3,14 +3,13 @@ import Header from "./Components/Header"
 import Hero from "./Components/Hero"
 import Footer from "./Components/Footer"
 import './App.css'
+import HomePage from './Components/HomePage'
 
 function App() {
 
   return (
    <div>
-    <Header></Header>
-    <Hero></Hero>
-    <Footer></Footer>
+    <HomePage></HomePage>
    </div>
   )
 }
