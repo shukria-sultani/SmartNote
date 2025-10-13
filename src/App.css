@@ -1,8 +1,8 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Nunito";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito";
 }
 .nunito {
   font-family: "Nunito", sans-serif;
@@ -10,94 +10,133 @@
   font-weight: 300;
   font-style: normal;
 }
-header{
-display: flex;
-flex-direction:row;
-position: sticky;
-top: 0;
-justify-content: space-evenly;
-align-items: center;
-padding: 20px;
-border-bottom: 3px solid rgb(255, 158, 1);
+header {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 3px solid rgb(255, 158, 1);
 }
-header h1{
-    color: rgb(166, 207, 1);
+header h1 {
+  color: rgb(166, 207, 1);
 }
-header div ul{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding-left: 30px;
+header div ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-left: 30px;
 }
-header div ul li{
-    list-style-type: none;
-    font-size: large;
+header div ul li {
+  list-style-type: none;
+  font-size: large;
+}
+header div ul li a {
+  text-decoration: none;
+  color: black;
+}
+header div ul .active {
+  background-color: rgb(255, 158, 1);
+  border-radius: 10px;
+  padding: 7px 14px;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  padding-top: 80px;
+  text-align: center;
+}
+.hero p {
+  font-size: large;
+}
+.hero h2 {
+  color: rgb(166, 207, 1);
+  font-size: 2.6rem;
+  text-align: center;
+}
+a {
+  font-size: medium;
+  border-radius: 7px;
+  text-decoration: none;
+  color: black;
+  border: none;
+  font-weight: bolder;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 15px;
 
 }
-header div ul li a{
-         text-decoration: none;
-    color: black;
-}
-header div ul .active{
-    background-color: rgb(255, 158, 1);
-    border-radius: 10px;
-    padding: 7px 14px;
-}
-.hero{
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
- padding: 50px;
- padding-top: 80px;
- text-align: center;
-}
-.hero p{
-    font-size: large;
-}
-.hero h2{
-    color: rgb(166, 207, 1);
-    font-size: 2.6rem;
-    text-align: center;
-}
-button{
-    background-color: rgb(255, 158, 1);
-    font-size: medium;
-    border-radius: 7px;
-    border: none;
-    font-weight: bolder;
-    cursor: pointer;
-     outline: none;
-    box-shadow: 2px 5px 5px 0px rgb(166, 207, 1);
-}
-.hero button{
-      margin-top: 50px;
-         padding: 15px 25px;
+
+.hero a {
+  margin-top: 40px;
+  padding: 15px 25px;
+  background-color: rgb(255, 158, 1);
 }
 
-@media (max-width: 400px){
-    header h1{
-        font-size: 1.3rem;
-    }
+@media (max-width: 400px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
 }
 
-footer{
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+.social-media .social-icon {
+  color: rgb(255, 158, 1);
+  font-size: 1.5rem;
+  margin: 3px;
+  transition: transform 0.6s ease;
+}
+.social-media .social-icon:hover {
+  transform: scale(1.2) translateY(-5px);
+  color: rgb(166, 207, 1);
+}
+.not-found{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-  
 }
-.social-media .social-icon{
-     color: rgb(255, 158, 1);
-     font-size: 1.5rem;
-     margin: 3px;
-         transition: transform 0.6s ease;
+.not-found img {
+  animation-name: flyIn;
+  animation-duration: 1s; /* Shorter, snappier duration */
+  animation-timing-function: ease-in; /* Slows down towards the end for a natural feel */
+  animation-fill-mode: forwards; /* Crucial: Keeps the element in its final state */
+}
 
+@keyframes flyIn {
+  0% {
+    /* Start the element completely off-screen to the right */
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    /* Move the element to its original, final position */
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.social-media .social-icon:hover{
- transform: scale(1.2) translateY(-5px); 
- color: rgb(166, 207, 1);
+
+.not-found a{
+    background-color: rgb(255, 158, 1);
+    margin-top: 20px;
+}
+@media (max-width: 760px){
+    .not-found h1{
+        font-size: xx-large;
+    }
+    .not-found img{
+        width: 300px;
+    }
 }

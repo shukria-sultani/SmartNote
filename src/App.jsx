@@ -13,7 +13,6 @@ function App() {
    <div>
    
     <Router>
-        
         <Routes>
           <Route path='/' element={<HomePage></HomePage>} />
           <Route  path='/notes' element={<NotePage></NotePage>} />

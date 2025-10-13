@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 export default function Hero()
 {
      return(
@@ -9,7 +10,7 @@ export default function Hero()
                     Master your studies with  <strong style={{"color": "rgb(255, 158, 1)"}}>AI-powered</strong> insights.
                     </p>
                     <h3>All with SmartNote.</h3>
-                    <button>Go to my Notes</button>
+                    <Link to="/notes">Go to my Notes</Link>
             </div>
      </>
      )
