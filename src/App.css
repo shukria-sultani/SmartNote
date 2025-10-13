@@ -4,6 +4,44 @@
   box-sizing: border-box;
   font-family: "Nunito";
 }
+.scroller {
+  --scrollbar-color-thumb: rgb(166, 207, 1);
+}
+@supports (scrollbar-width: auto) {
+  .scroller {
+    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+  }
+
+  .warning {
+    display: none;
+  }
+}
+.scroller {
+  border: 1px solid #000;
+  width: 100%;
+  height: 50vh;
+
+  position: relative;
+  container-type: inline-size;
+
+  &:has(.content) {
+    background: white;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .content {
+    min-height: 75vh;
+    padding: 1rem 1rem;
+
+    *:first-child {
+      margin-top: 0;
+    }
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
 .nunito {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -17,6 +55,7 @@ header {
   top: 0;
   justify-content: space-evenly;
   align-items: center;
+  background-color: #FFFFFF;
   padding: 20px;
   border-bottom: 3px solid rgb(255, 158, 1);
 }
@@ -78,10 +117,14 @@ a {
   background-color: rgb(255, 158, 1);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   header h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
+header{
+    justify-content:flex-start;
+    gap: 2px;
+}
 }
 
 footer {
@@ -110,19 +153,17 @@ footer {
 }
 .not-found img {
   animation-name: flyIn;
-  animation-duration: 1s; /* Shorter, snappier duration */
-  animation-timing-function: ease-in; /* Slows down towards the end for a natural feel */
-  animation-fill-mode: forwards; /* Crucial: Keeps the element in its final state */
+  animation-duration: 1s; 
+  animation-timing-function: ease-in; 
+  animation-fill-mode: forwards; 
 }
 
 @keyframes flyIn {
   0% {
-    /* Start the element completely off-screen to the right */
     transform: translateY(-100%);
     opacity: 0;
   }
   100% {
-    /* Move the element to its original, final position */
     transform: translateY(0);
     opacity: 1;
   }
@@ -139,4 +180,109 @@ footer {
     .not-found img{
         width: 300px;
     }
+}
+
+.add-note{
+  display: flex;
+  justify-content: flex-end;
+
+}
+.add-note button{
+  background-color: rgb(255, 158, 1);
+  margin-top: 20px;
+  padding: 7px 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin-right: 30px;
+}
+.noteFom-modal{
+  background-color: rgba(244, 244, 244, 0.6);
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+}
+
+.noteForm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    width: 100%;
+    margin: 0px auto;
+    gap: 20px;
+    justify-content: center;
+}
+
+.closeIcon{
+  font-size: x-large;
+  padding: 3px;
+  background-color: rgb(255, 158, 1);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.noteForm-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+
+.noteForm-container form label {
+    align-self: flex-start;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.noteForm-container form input,
+.noteForm-container form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D1D8DD;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.noteForm-container form textarea {
+    height: 180px;
+    resize: none;
+    overflow-y: auto;
+
+}
+
+.noteForm-container form input:focus,
+.noteForm-container form textarea:focus {
+    outline: none;
+    border-color: rgb(255, 158, 1);
+    box-shadow: 0 0 0 3px rgba(255, 158, 1, 0.3);
+}
+
+.noteForm-container form button {
+    width: 100%;
+    background-color: rgb(255, 158, 1);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 12px 0;
+    margin-top: 15px;
+    transition: background-color 0.4s ease, transform 0.1s ease;
+}
+
+.noteForm-container form button:hover {
+    background-color: rgb(166, 207, 1);
+    transform: translateY(-2px);
 }

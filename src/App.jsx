@@ -7,6 +7,7 @@ import HomePage from './Components/HomePage'
 import NotePage from './Components/NotePage'
 import NotFound from "./Components/NotFound"
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import AddNote from './Components/AddNote'
 function App() {
 
   return (
@@ -17,7 +18,6 @@ function App() {
           <Route path='/' element={<HomePage></HomePage>} />
           <Route  path='/notes' element={<NotePage></NotePage>} />
           <Route  path='*'  element={<NotFound></NotFound>} />
-          <Route   />
         </Routes>
 
     </Router>
