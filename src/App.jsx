@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import Header from "./Components/Header"
-import Hero from "./Components/Hero"
-import Footer from "./Components/Footer"
+import Header from "./components/Header"
+import Hero from "./components/Hero"
+import Footer from "./components/Footer"
 import './App.css'
-import HomePage from './Components/HomePage'
-import NotePage from './Components/NotePage'
-import NotFound from "./Components/NotFound"
+import HomePage from './components/HomePage'
+import NotePage from './components/NotePage'
+import NotFound from "./components/NotFound"
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import AddNote from './Components/AddNote'
+import AddNote from './components/AddNote'
 function App() {
 
   return (
