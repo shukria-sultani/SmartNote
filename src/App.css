@@ -4,44 +4,7 @@
   box-sizing: border-box;
   font-family: "Nunito";
 }
-.scroller {
-  --scrollbar-color-thumb: rgb(166, 207, 1);
-}
-@supports (scrollbar-width: auto) {
-  .scroller {
-    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-  }
 
-  .warning {
-    display: none;
-  }
-}
-.scroller {
-  border: 1px solid #000;
-  width: 100%;
-  height: 50vh;
-
-  position: relative;
-  container-type: inline-size;
-
-  &:has(.content) {
-    background: white;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  .content {
-    min-height: 75vh;
-    padding: 1rem 1rem;
-
-    *:first-child {
-      margin-top: 0;
-    }
-    *:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
 .nunito {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -264,8 +227,9 @@ footer {
 .noteForm-container form input:focus,
 .noteForm-container form textarea:focus {
     outline: none;
-    border-color: rgb(255, 158, 1);
-    box-shadow: 0 0 0 3px rgba(255, 158, 1, 0.3);
+    /* border-color: rgb(255, 158, 1); */
+    border: none;
+    box-shadow: 0 0 3px 1px rgb(255, 158, 1);
 }
 
 .noteForm-container form button {
