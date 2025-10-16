@@ -1,7 +1,8 @@
 import { LuNotebookText } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
-export default function AddNote({ closeModal }) {
+export default function AddNote({ closeModal, onSubmit }) {
+
   const [noteData, setNoteData] = useState({
     title: "",
     subject: "",
@@ -13,9 +14,11 @@ export default function AddNote({ closeModal }) {
         ...prevNoteData,
         [id]: value, 
       }));
+ 
     };
   const handleSubmit = ()=>{
-        console.log(noteData)
+    onSubmit(noteData)
+    console.log(noteData)
         setNoteData({
     title: "",
     subject: "",
