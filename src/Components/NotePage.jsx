@@ -1,7 +1,9 @@
 import AddNote from "./AddNote";
 import Header from "./Header";
+import Search from "./Search";
 import {useLocalStorage} from "../hooks/useLocalStorage"
 import { useState } from "react";
+import Filter from "./Filter";
 export default function NotePage(){
   const [isModalOpen, setModelOpen] = useState(false)
     const {value: notes, setValue : setNotes } = useLocalStorage("notesData", []); 
@@ -16,6 +18,10 @@ export default function NotePage(){
          <Header></Header>
           <div className="add-note"><button onClick={()=> {setModelOpen(true)}}>Add Note</button></div>
            {isModalOpen && <div className="noteFom-modal"><AddNote closeModal={()=>{setModelOpen(false)}}  onSubmit={storeNotes}></AddNote></div>}
+      <div className="search-filter">
+           <Search></Search>
+           <Filter></Filter>
+           </div>
          </>
      )
 }

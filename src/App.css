@@ -250,3 +250,35 @@ footer {
     background-color: rgb(166, 207, 1);
     transform: translateY(-2px);
 }
+.search-bar{
+  max-width: 300px;
+  width: 50%;
+   position: relative;
+}
+.search-bar form{
+  width: 100%;
+}
+.search-bar form input{
+  width: 100%;
+  max-width: 400px;
+  padding: 7px 10px;
+  border-radius: 30px;
+  border: 2px solid rgb(166, 207, 1);
+}
+.search-icon{
+  color: rgb(166, 207, 1);
+  font-size: 1.7rem;
+  position: absolute;
+  left: 260px;
+  padding-top: 10px;
+}
+.search-filter{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+.filter select{  
+  border: 2px solid rgb(166, 207, 1);
+  padding: 7px 15px;
+}
