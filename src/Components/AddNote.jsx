@@ -17,8 +17,11 @@ export default function AddNote({ closeModal, onSubmit }) {
  
     };
   const handleSubmit = ()=>{
-    onSubmit(noteData)
-    console.log(noteData)
+    const newNote = {
+      id: Date.now(),
+      ...noteData
+    }
+    onSubmit(newNote)
         setNoteData({
     title: "",
     subject: "",
