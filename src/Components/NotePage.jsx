@@ -31,6 +31,12 @@ export default function NotePage() {
         filterTerm === "" 
             ? notes
             : notes.filter((note) => note && note.subject === filterTerm);
+
+  // handle search
+const [searchTerm, setSearchTerm] = useState("");
+const searchResult = searchTerm === "" ? filteredNotes : filteredNotes.filter((note) => 
+            note && note.content.toLowerCase().includes(searchTerm.toLowerCase())
+        );
   return (
     <>
       <Header></Header>
@@ -54,12 +60,14 @@ export default function NotePage() {
         </div>
       )}
       <div className="search-filter">
-        <Search></Search>
+        <Search setSearch = {setSearchTerm}></Search>
         <Filter subjects={uniqueSubjects} setFilter={setFilterTerm}></Filter>
       </div>
       <div className="notes-card-container">
-        {Array.isArray(filteredNotes) && 
-        filteredNotes.map((note, index) => {
+        {
+         
+        Array.isArray(searchResult) && 
+        searchResult.map((note, index) => {
             if (!note || (typeof note !== 'object')) return null;
             const uniqueID = note.id ? note.id : `${note.title}-${index}`;
             return <NoteCard key={uniqueID} note={note}></NoteCard>;
