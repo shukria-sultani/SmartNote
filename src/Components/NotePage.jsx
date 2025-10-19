@@ -2,11 +2,12 @@ import AddNote from "./AddNote";
 import Header from "./Header";
 import Search from "./Search";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Filter from "./Filter";
 import NoteCard from "./NoteCard";
 export default function NotePage() {
   const [isModalOpen, setModelOpen] = useState(false);
+  const [uniqueSubjects, setUniqueSubjects]= useState([])
   const { value: notes, setValue: setNotes } = useLocalStorage("notesData", []);
   const storeNotes = (newNote) => {
     setNotes((prevNotes) => {
@@ -15,6 +16,16 @@ export default function NotePage() {
     });
     console.log(notes)
   };
+
+useEffect(() => {
+    const allSubjects = Array.isArray(notes)
+        ? notes.filter(note => note && note.subject)
+               .map(note => note.subject)
+        : [];
+    const uniqueSet = new Set(allSubjects);
+    setUniqueSubjects(Array.from(uniqueSet));
+    
+}, [notes]); 
 
   return (
     <>
@@ -39,8 +50,8 @@ export default function NotePage() {
         </div>
       )}
       <div className="search-filter">
-        <Search></Search>
-        <Filter></Filter>
+        <Search ></Search>
+        <Filter subjects={uniqueSubjects}></Filter>
       </div>
         <div className="notes-card-container">
       {Array.isArray(notes) && notes.map((note, index)=>{

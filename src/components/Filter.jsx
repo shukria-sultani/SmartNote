@@ -1,19 +1,17 @@
 import { useState } from "react"
 
-export default function Filter (){
- 
-      return(
-        <>
-          <div className="filter">
-            <select name="" id="">
-                <option value="">Filter Notes By Subject</option>
-                <option value="">Web Development</option>
-                <option value="">React</option>
-                <option value="">JavaScript</option>
-                <option value="">Python</option>
-            </select>
-          </div>
-        
-        </>
-      )
+export default function Filter ({ subjects }){
+
+   return(
+    <>
+     <div className="filter">
+      <select name="subject-filter" id="subject-filter">
+        <option value="">Filter the notes by subject</option>
+        {Array.isArray(subjects) && subjects.map((subject, index) =>{
+         return (<option key={subject || index} value={subject}>{subject}</option>)
+        })}
+      </select>
+     </div>
+    </>
+   )
 }
