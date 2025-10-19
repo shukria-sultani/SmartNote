@@ -7,26 +7,30 @@ import Filter from "./Filter";
 import NoteCard from "./NoteCard";
 export default function NotePage() {
   const [isModalOpen, setModelOpen] = useState(false);
-  const [uniqueSubjects, setUniqueSubjects]= useState([])
+  const [uniqueSubjects, setUniqueSubjects] = useState([]);
   const { value: notes, setValue: setNotes } = useLocalStorage("notesData", []);
   const storeNotes = (newNote) => {
     setNotes((prevNotes) => {
       const notesArray = Array.isArray(prevNotes) ? prevNotes : [];
       return [newNote, ...notesArray];
     });
-    console.log(notes)
+    console.log(notes);
   };
 
-useEffect(() => {
+  useEffect(() => {
     const allSubjects = Array.isArray(notes)
-        ? notes.filter(note => note && note.subject)
-               .map(note => note.subject)
-        : [];
+      ? notes.filter((note) => note && note.subject).map((note) => note.subject)
+      : [];
     const uniqueSet = new Set(allSubjects);
     setUniqueSubjects(Array.from(uniqueSet));
-    
-}, [notes]); 
+  }, [notes]);
 
+  // handle filter
+  const [filterTerm, setFilterTerm] = useState("");
+ const filteredNotes =
+        filterTerm === "" 
+            ? notes
+            : notes.filter((note) => note && note.subject === filterTerm);
   return (
     <>
       <Header></Header>
@@ -50,17 +54,17 @@ useEffect(() => {
         </div>
       )}
       <div className="search-filter">
-        <Search ></Search>
-        <Filter subjects={uniqueSubjects}></Filter>
+        <Search></Search>
+        <Filter subjects={uniqueSubjects} setFilter={setFilterTerm}></Filter>
       </div>
-        <div className="notes-card-container">
-      {Array.isArray(notes) && notes.map((note, index)=>{
-           
-           const uniqueID = note.id ? note.id : `${note.title}-${index}`
-            return (<NoteCard key={uniqueID} note={note}></NoteCard>)
-      })
-    }
-       </div>
+      <div className="notes-card-container">
+        {Array.isArray(filteredNotes) && 
+        filteredNotes.map((note, index) => {
+            if (!note || (typeof note !== 'object')) return null;
+            const uniqueID = note.id ? note.id : `${note.title}-${index}`;
+            return <NoteCard key={uniqueID} note={note}></NoteCard>;
+        })}
+      </div>
     </>
-  )
+  );
 }
