@@ -286,8 +286,8 @@ footer {
 }
 .notes-card-container{
  display: grid;
- grid-template-columns: 300px 300px 300px;
- grid-template-rows: auto;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  grid-template-rows: auto;
  align-items: center;
  justify-content: center;
  padding: 50px;
@@ -327,3 +327,17 @@ footer {
    padding-top:10px;
 
 }
+@media (max-width: 768px) {
+
+  .add-note{
+    padding: 10px;
+  }
+  .search-filter{
+    flex-wrap: wrap;
+  }
+  .search-bar{
+    width: 100%;
+  }
+ 
+
+} 
