@@ -395,12 +395,31 @@ footer {
   flex-direction: column;
   max-width: 600px;
   border: 1px solid rgb(255, 158, 1);
-  padding: 20px;
+  padding: 30px;
   border-radius: 7px;
   gap: 10px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 .note-content p{
   text-align: justify;
   line-height: 30px;
+}
+.note-color{
+  align-self: flex-end;
+}
+.note-color select{
+  width:  200px;
+  padding: 7px;
+  font-size: 0.9rem;
+}
+
+/*  Note area colors */
+.white-area{
+  background-color: #fff;
+}
+.sepia-area{
+  background-color: #FCF5E8;
+}
+.lightGreen-area{
+  background-color: rgb(221, 248, 110);
 }
