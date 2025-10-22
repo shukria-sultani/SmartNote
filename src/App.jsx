@@ -5,7 +5,7 @@ import HomePage from './components/HomePage'
 import NotePage from './components/NotePage'
 import NotFound from "./components/NotFound"
 import {BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom"
-import ReadPage from './components/ReadPage'
+import NoteReadMode from './components/NoteReadMode'
 
 function App() {
 const noteId = useParams()
@@ -17,7 +17,7 @@ const noteId = useParams()
           <Route path='/' element={<HomePage></HomePage>} />
           <Route  path='/notes' element={<NotePage></NotePage>} />
           <Route  path='*'  element={<NotFound></NotFound>} />
-          <Route  path='/read/:noteId'  element={<ReadPage></ReadPage>} />
+          <Route  path='/read/:noteId'  element={<NoteReadMode></NoteReadMode>} />
         </Routes>
 
     </Router>

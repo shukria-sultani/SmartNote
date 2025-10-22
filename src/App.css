@@ -423,3 +423,12 @@ footer {
 .lightGreen-area{
   background-color: rgb(221, 248, 110);
 }
+.arrow{
+  margin: 30px;
+  background-color: rgb(255, 158, 1);
+   font-size: 25px;
+   padding: 4px;
+   cursor: pointer;
+  border-radius: 10px;
+
+}

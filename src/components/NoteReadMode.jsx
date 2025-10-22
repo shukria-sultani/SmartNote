@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
-
+import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowsToEye } from "react-icons/fa6";
 export default function NoteReadMode() {
   const { value: notes } = useLocalStorage("notesData");
   const { noteId } = useParams();
@@ -29,8 +30,11 @@ export default function NoteReadMode() {
     }
     if (noteAreaColor === "Light Green") setClassName("lightGreen-area");
   }, [noteAreaColor]);
+
+  const navigate = useNavigate();
   return (
     <>
+    <FaArrowLeft className="arrow" onClick={()=>{navigate(-1)}}></FaArrowLeft>
       <div className={`note-content ${className}`}>
         <div className="note-color">
           <select
