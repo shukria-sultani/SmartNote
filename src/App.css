@@ -337,7 +337,6 @@ footer {
    cursor: pointer;
    font-weight: bolder;
 
-
 }
 @media (max-width: 768px) {
 
@@ -384,4 +383,24 @@ footer {
      border: none;
      border-radius: 7px;
      cursor: pointer;
+}
+
+
+
+/*  read mode */
+
+.note-content{
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  max-width: 600px;
+  border: 1px solid rgb(255, 158, 1);
+  padding: 20px;
+  border-radius: 7px;
+  gap: 10px;
+  margin-top: 100px;
+}
+.note-content p{
+  text-align: justify;
+  line-height: 30px;
 }

@@ -4,10 +4,11 @@ import './App.css'
 import HomePage from './components/HomePage'
 import NotePage from './components/NotePage'
 import NotFound from "./components/NotFound"
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom"
+import ReadPage from './components/ReadPage'
 
 function App() {
-
+const noteId = useParams()
   return (
    <div>
    
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<HomePage></HomePage>} />
           <Route  path='/notes' element={<NotePage></NotePage>} />
           <Route  path='*'  element={<NotFound></NotFound>} />
+          <Route  path='/read/:noteId'  element={<ReadPage></ReadPage>} />
         </Routes>
 
     </Router>

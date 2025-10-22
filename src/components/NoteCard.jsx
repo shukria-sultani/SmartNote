@@ -1,11 +1,15 @@
+import {Link, useNavigate, useParams} from "react-router-dom"
 export default function NoteCard({note, onDelete}) {
-
+  const navigate = useNavigate()
+   const readNote = (noteId)=>{
+      navigate(`/read/${noteId}`)
+   }
   return (
     <>
           <div className="main-container">
                 <div className="actions">
          
-                  <button>Read</button>
+                  <button onClick={()=>{readNote(note.id)}}>Read</button>
                   <button onClick={() => onDelete(note.id)}>Delete</button>
                 
                 </div>
