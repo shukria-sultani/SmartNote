@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import Filter from "./Filter";
 import NoteCard from "./NoteCard";
 import DeleteModal from "./DeleteModal";
-
-import toast, { Toaster } from 'react-hot-toast';
+import { FaPlus } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 export default function NotePage() {
   const [isModalOpen, setModelOpen] = useState(false);
   const [uniqueSubjects, setUniqueSubjects] = useState([]);
@@ -61,9 +61,8 @@ export default function NotePage() {
       removeNoteById(noteToDeleteId);
       // Use your toast here for success!
       toast.success("Note successfully deleted!", {
-            duration: 3000, 
-        });
-
+        duration: 3000,
+      });
     }
     setNoteToDeleteId(null);
   };
@@ -75,7 +74,7 @@ export default function NotePage() {
 
   return (
     <>
-    <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-right" reverseOrder={false} />
       <Header></Header>
       <div className="add-note">
         <button
@@ -83,9 +82,10 @@ export default function NotePage() {
             setModelOpen(true);
           }}
         >
-          Add Note
+          <FaPlus></FaPlus>
         </button>
       </div>
+
       {isModalOpen && (
         <div className="noteFom-modal">
           <AddNote
