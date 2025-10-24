@@ -65,7 +65,7 @@ header div ul li .active {
 }
 a {
   font-size: medium;
-  border-radius: 7px;
+  border-radius: 30px;
   text-decoration: none;
   color: black;
   border: none;
@@ -164,7 +164,6 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 10px 10px;
-
   cursor: pointer;
   border: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -175,11 +174,13 @@ footer {
 .noteFom-modal {
   background-color: rgba(244, 244, 244, 0.6);
   width: 100%;
-  position: fixed;
+  position: sticky;
   z-index: 10;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .noteForm-container {
   display: flex;
   flex-direction: column;
@@ -188,13 +189,12 @@ footer {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  max-width: 500px;
+  max-width: 1000px;
   width: 100%;
   margin: 0px auto;
   gap: 20px;
   justify-content: center;
 }
-
 .closeIcon {
   font-size: x-large;
   padding: 3px;
@@ -239,7 +239,6 @@ footer {
 .noteForm-container form input:focus,
 .noteForm-container form textarea:focus {
   outline: none;
-  /* border-color: rgb(255, 158, 1); */
   border: none;
   box-shadow: 0 0 3px 1px rgb(255, 158, 1);
 }
@@ -308,7 +307,9 @@ footer {
 .note-card {
   height: 350px;
 }
-
+.note-card ul, ol{
+  padding-left: 30px;
+}
 .notes-card-container .main-container {
   position: relative;
 }
@@ -404,6 +405,10 @@ footer {
   text-align: justify;
   line-height: 30px;
 }
+.note-content ol, ul {
+  padding-left: 30px;
+}
+
 .note-color {
   align-self: flex-end;
 }
@@ -432,4 +437,20 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
   border-radius: 20px;
+}
+
+/* Quill editor */
+.ql-editor {
+    min-height: 200px; 
+    max-height: 30vh; 
+    overflow-y: auto;
+}
+
+.ql-snow.ql-toolbar .ql-picker-label:hover{
+  background-color: rgb(255, 158, 1);
+
+}
+.ql-snow.ql-toolbar button:hover{
+  background-color: rgb(255, 158, 1);
+  color: black;
 }

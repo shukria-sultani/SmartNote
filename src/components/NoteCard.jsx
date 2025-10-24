@@ -16,7 +16,7 @@ export default function NoteCard({note, onDelete}) {
             <div className="note-card">
               <h4>Subject: {note.subject}</h4>
               <h4>Title: {note.title}</h4>
-              <p >{note.content.substring(0, 300) + "..."}</p>
+              <p dangerouslySetInnerHTML={{ __html: note.content.substring(0, 300) + "..." }}></p>
             </div>
           </div>
    

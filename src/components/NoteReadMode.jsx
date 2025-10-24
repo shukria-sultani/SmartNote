@@ -51,7 +51,7 @@ export default function NoteReadMode() {
         </div>
         <h3>Subject: {note.subject}</h3>
         <h4>Title: {note.title}</h4>
-        <p>{note.content}</p>
+      <p dangerouslySetInnerHTML={{ __html: note.content}}></p>
       </div>
     </>
   );

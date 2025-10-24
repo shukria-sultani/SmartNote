@@ -1,34 +1,41 @@
 import { LuNotebookText } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
 export default function AddNote({ closeModal, onSubmit }) {
-
   const [noteData, setNoteData] = useState({
     title: "",
     subject: "",
     content: "",
   });
   const handleChange = (e) => {
-      const { id, value } = e.target;
-      setNoteData((prevNoteData) => ({
+    const { id, value } = e.target;
+    setNoteData((prevNoteData) => ({
+      ...prevNoteData,
+      [id]: value,
+    }));
+  };
+
+  // Handle react quill 
+  const handleContent = (contentValue)=>{
+     setNoteData((prevNoteData)=>({
         ...prevNoteData,
-        [id]: value, 
-      }));
- 
-    };
-  const handleSubmit = ()=>{
+        content: contentValue
+     }))
+  }
+  const handleSubmit = () => {
     const newNote = {
       id: Date.now(),
-      ...noteData
-    }
-    onSubmit(newNote)
-        setNoteData({
-    title: "",
-    subject: "",
-    content: "",
-  })
-  
-  }
+      ...noteData,
+    };
+    onSubmit(newNote);
+    setNoteData({
+      title: "",
+      subject: "",
+      content: "",
+    });
+  };
   return (
     <>
       <div className="noteForm-container">
@@ -39,11 +46,12 @@ export default function AddNote({ closeModal, onSubmit }) {
           ></LuNotebookText>{" "}
           Add a new Note
         </h2>
-        <form onSubmit={(e) => {
-    e.preventDefault();
-    handleSubmit();
-      
-  }}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
           <label htmlFor="title">Enter the title:</label>
           <input
             type="text"
@@ -59,19 +67,16 @@ export default function AddNote({ closeModal, onSubmit }) {
             id="subject"
             required
             spellCheck
-               value={noteData.subject}
+            value={noteData.subject}
             onChange={handleChange}
-         
           />
           <label htmlFor="content">Enter the note content:</label>
-          <textarea
-            type="text"
-            id="content"
-            required
-                        value={noteData.content}
-            onChange={handleChange}
-            spellCheck
+          <ReactQuill
+            theme="snow"
 
+            value={noteData.content}
+            onChange={handleContent}
+            spellCheck
           />
           <button>Add</button>
         </form>
