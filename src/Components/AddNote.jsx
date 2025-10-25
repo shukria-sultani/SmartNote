@@ -3,8 +3,9 @@ import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
-export default function AddNote({ closeModal, onSubmit }) {
-  const [noteData, setNoteData] = useState({
+export default function AddNote({ onSubmit, initialNoteData = null, formTitle, closeModel, buttonText}) {
+  const [noteData, setNoteData] = useState(
+    initialNoteData || {
     title: "",
     subject: "",
     content: "",
@@ -26,25 +27,28 @@ export default function AddNote({ closeModal, onSubmit }) {
   }
   const handleSubmit = () => {
     const newNote = {
-      id: Date.now(),
+      id: initialNoteData ? initialNoteData.id : Date.now(),
       ...noteData,
     };
     onSubmit(newNote);
-    setNoteData({
+    
+   if(!initialNoteData){
+setNoteData({
       title: "",
       subject: "",
       content: "",
     });
+   } 
   };
   return (
     <>
       <div className="noteForm-container">
-        <IoMdClose className="closeIcon" onClick={closeModal}></IoMdClose>
+        <IoMdClose className="closeIcon" onClick={closeModel}></IoMdClose>
         <h2>
           <LuNotebookText
             style={{ fontSize: "1.4rem", color: "rgb(255, 158, 1)" }}
           ></LuNotebookText>{" "}
-          Add a new Note
+         {formTitle}
         </h2>
         <form
           onSubmit={(e) => {
@@ -78,7 +82,7 @@ export default function AddNote({ closeModal, onSubmit }) {
             onChange={handleContent}
             spellCheck
           />
-          <button>Add</button>
+          <button>{buttonText}</button>
         </form>
       </div>
     </>

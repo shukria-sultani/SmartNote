@@ -16,12 +16,17 @@ export default function NotePage() {
     setValue: setNotes,
     removeNoteById,
   } = useLocalStorage("notesData", []);
+  // Store the new note to local stroage
   const storeNotes = (newNote) => {
     setNotes((prevNotes) => {
       const notesArray = Array.isArray(prevNotes) ? prevNotes : [];
       return [newNote, ...notesArray];
     });
-    console.log(notes);
+
+     setModelOpen(false)
+          toast.success("Note successfully Added!", {
+        duration: 3000,
+      });
   };
   useEffect(() => {
     const allSubjects = Array.isArray(notes)
@@ -59,7 +64,6 @@ export default function NotePage() {
   const confirmDeletion = () => {
     if (noteToDeleteId) {
       removeNoteById(noteToDeleteId);
-      // Use your toast here for success!
       toast.success("Note successfully deleted!", {
         duration: 3000,
       });
@@ -89,11 +93,12 @@ export default function NotePage() {
       {isModalOpen && (
         <div className="noteFom-modal">
           <AddNote
-            closeModal={() => {
+            closeModel={() => {
               setModelOpen(false);
             }}
             onSubmit={storeNotes}
-          ></AddNote>
+            buttonText={"Add Note"}
+           formTitle={"Add a New Note"}></AddNote>
         </div>
       )}
       <div className="search-filter">

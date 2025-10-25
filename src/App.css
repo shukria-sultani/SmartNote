@@ -201,6 +201,7 @@ footer {
   background-color: rgb(255, 158, 1);
   border-radius: 50%;
   cursor: pointer;
+  font-weight: border;
   margin-left: auto;
 }
 
@@ -453,4 +454,22 @@ footer {
 .ql-snow.ql-toolbar button:hover{
   background-color: rgb(255, 158, 1);
   color: black;
+}
+
+
+.action-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-buttons button{
+  padding: 7px 20px;
+  background-color: rgb(255, 158, 1);
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  font-size: medium;
+  border: none;
+  font-weight: bolder;
 }
