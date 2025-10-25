@@ -395,12 +395,13 @@ footer {
   display: flex;
   justify-self: center;
   flex-direction: column;
-  max-width: 600px;
+  width: 95%;
   border: 1px solid rgb(255, 158, 1);
   padding: 30px;
   border-radius: 7px;
   gap: 10px;
-  margin-top: 80px;
+  margin: 20px;
+  margin-top: 40px;
 }
 .note-content p {
   text-align: justify;
