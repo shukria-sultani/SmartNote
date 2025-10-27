@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
 import './App.css'
-import HomePage from './Components/HomePage'
-import NotePage from './Components/NotePage'
-import NotFound from "./Components/NotFound"
-import NoteReadMode from "./Components/NoteReadMode"
+import HomePage from './components/HomePage'
+import NotePage from './components/NotePage'
+import NotFound from "./components/NotFound"
+import NoteReadMode from "./components/NoteReadMode"
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
-function App() {
+function App() {s
   return (
    <div>
    
