@@ -6,7 +6,7 @@ export default function Hero()
   <div className="hero">
                 <h1>Hey Welcome! 👋</h1>
                 <h2>Unlock Your Learning <br /> Potential!</h2>
-                <p>Organize, Summarize, Take Quizes. 
+                <p>Organize, Summarize, Take Quizes on Your Notes. 
                     Master your studies with  <strong style={{"color": "rgb(255, 158, 1)"}}>AI-powered</strong> insights.
                     </p>
                     <h3>All with SmartNote.</h3>
