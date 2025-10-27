@@ -1,6 +1,6 @@
 import AddNote from "./AddNote";
-import Header from "./Header";
-import Search from "./Search";
+import Search from "./Search"
+import Filter from "./Filter";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 import Filter from "./Filter";
