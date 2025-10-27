@@ -1,10 +1,10 @@
 import AddNote from "./AddNote";
+import Filter from "./Filter"
 import Search from "./Search"
-import Filter from "./Filter";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
-import NoteCard from "./NoteCard";
-import DeleteModal from "./DeleteModal";
+import NoteCard from "./NoteCard"
+import DeleteModal from "./DeleteModal"
 import { FaPlus } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 export default function NotePage() {

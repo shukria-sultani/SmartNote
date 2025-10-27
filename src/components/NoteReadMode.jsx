@@ -3,9 +3,10 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import Summary from "./Summary"
 import AddNote from "./AddNote";
-import Quiz from "./Quiz";
-import Summary from "./Summary";
+import Quiz from "./Quiz"
+
 export default function NoteReadMode() {
   const { value: notes, setValue: setNotes } = useLocalStorage("notesData");
   const { noteId } = useParams();
