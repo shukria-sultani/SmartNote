@@ -11,11 +11,11 @@ const activeLink = ({isActive}) =>
      return(
         <>
         <header>
-              <h1><LuNotebookText style={{"fontSize": "1.4rem"}}></LuNotebookText> SmartNote</h1>
+              <h1><LuNotebookText style={{"fontSize": "1.4rem"}} className='noteIcon'></LuNotebookText> SmartNote</h1>
             <div>
               
                 <ul>
-                    <li className={activeLink}><NavLink to="/"><FaHome ></FaHome> Home</NavLink></li>
+                    <li className={activeLink}><NavLink to="/"> <FaHome></FaHome> Home</NavLink></li>
                     <li className={activeLink}><NavLink to="/notes"><LuNotebookText></LuNotebookText> Notes</NavLink> </li>
                 </ul>
             </div>

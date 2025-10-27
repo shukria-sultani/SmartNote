@@ -29,7 +29,6 @@ header h1 {
 header div ul {
   display: flex;
   justify-content: center;
-  gap: 20px;
   padding-left: 30px;
 }
 header div ul li {
@@ -43,7 +42,7 @@ header div ul li a {
 
 header div ul li .active {
   background-color: rgb(255, 158, 1);
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 7px 14px;
 }
 .hero {
@@ -80,17 +79,24 @@ a {
   padding: 15px 25px;
   background-color: rgb(255, 158, 1);
 }
-
+.hero a:hover{
+  background-color: rgb(166, 207, 1);
+}
 @media (max-width: 450px) {
   header h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   header {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 2px;
   }
   header div ul li .active {
-    padding: 5px 6px;
+    padding: 5px 5px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  .noteIcon{
+    font-size: 1rem;
   }
 }
 
@@ -101,6 +107,7 @@ footer {
   flex-direction: column;
   gap: 10px;
   padding: 20px;
+
 }
 .social-media .social-icon {
   color: rgb(255, 158, 1);
@@ -204,7 +211,9 @@ footer {
   font-weight: border;
   margin-left: auto;
 }
-
+.closeIcon:hover{
+  background-color: rgb(166, 207, 1);
+}
 .noteForm-container form {
   display: flex;
   flex-direction: column;
@@ -214,7 +223,7 @@ footer {
 
 .noteForm-container form label {
   align-self: flex-start;
-  font-size: 0.95em;
+  font-size: 1em;
   font-weight: 500;
   color: #555;
   margin-bottom: 2px;
@@ -299,14 +308,15 @@ footer {
 .notes-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
-  grid-template-rows: auto;
+  grid-template-rows: max-content;
   align-items: center;
   justify-content: center;
   padding: 50px;
   gap: 10px;
 }
 .note-card {
-  height: 350px;
+  height: 370px;
+ 
 }
 .note-card ul, ol{
   padding-left: 30px;
@@ -320,6 +330,9 @@ footer {
 }
 .note-card p {
   padding-top: 10px;
+
+  text-align: justify;
+  
 }
 .notes-card-container .main-container:hover .actions {
   display: block;
@@ -333,7 +346,7 @@ footer {
   top: 0;
   display: flex;
   height: 100%;
-  max-height: 350px;
+  max-height: 400px;
   display: none;
 }
 
@@ -342,10 +355,13 @@ footer {
   margin-top: 10px;
   padding: 10px 0px;
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   background-color: #fff;
   cursor: pointer;
   font-weight: bolder;
+}
+.notes-card-container .actions button:hover{
+  background-color: rgb(166, 207, 1);
 }
 @media (max-width: 768px) {
   .add-note {
@@ -437,10 +453,11 @@ footer {
   padding: 4px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
   border-radius: 20px;
 }
-
+.arrow:hover{
+  background-color: rgb(166, 207, 1);
+}
 /* Quill editor */
 .ql-editor {
     min-height: 200px; 
@@ -549,16 +566,32 @@ box-shadow: 0px 1px 5px #d1d8dd;
 .summary-container{
   height: 100vh;
   width: 100%;
-  overflow-x: scroll;
+  position: sticky;
 }
 .note-summary{
-  width: 100%;
   display: flex;
   flex-direction: column;
   width: 70%;
   gap: 20px;
   height: auto;
   padding: 20px;
-  box-shadow: 0px 1px 5px #d1d8dd;
-  
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 5px #d1d8dd; 
+}
+@media (max-width: 678px) {
+  .summary-container{
+  height: max-content;
+  width: 100%;
+  top: 0;
+  padding: 30px;
+}
+.note-summary h2{
+  font-size: 1.4rem;
+}
+.note-summary{
+  padding: 20px;
+  overflow-y: scroll;
+  width: 100%;
+  height: max-content;
+}
 }
