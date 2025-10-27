@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 import './App.css'
-import HomePage from './components/HomePage'
-import NotePage from './components/NotePage'
-import NotFound from "./components/NotFound"
+import HomePage from './Components/HomePage'
+import NotePage from './Components/NotePage'
+import NotFound from "./Components/NotFound"
 import {BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom"
-import NoteReadMode from '../src/components/NoteReadMode'
+import NoteReadMode from './Components/NoteReadMode'
 
 function App() {
 const noteId = useParams()
