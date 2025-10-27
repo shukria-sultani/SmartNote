@@ -3,7 +3,6 @@ import Search from "./Search"
 import Filter from "./Filter";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
-import Filter from "./Filter";
 import NoteCard from "./NoteCard";
 import DeleteModal from "./DeleteModal";
 import { FaPlus } from "react-icons/fa";
