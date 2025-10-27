@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 
 export default function DeleteModal ({onConfirm, onCancel, noteId}){
  if(noteId === null) return null
