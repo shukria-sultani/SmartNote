@@ -489,7 +489,7 @@ button:hover{
 background-color: rgb(166, 207, 1);
 border: none;
 }
-.quiz-container{
+.summary-container, .quiz-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -544,5 +544,21 @@ box-shadow: 0px 1px 5px #d1d8dd;
   gap: 10px;
   flex-direction: column;
   padding: 30px;
-box-shadow: 0px 1px 5px #d1d8dd;
+  box-shadow: 0px 1px 5px #d1d8dd;
+}
+.summary-container{
+  height: 100vh;
+  width: 100%;
+  overflow-x: scroll;
+}
+.note-summary{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 20px;
+  height: auto;
+  padding: 20px;
+  box-shadow: 0px 1px 5px #d1d8dd;
+  
 }

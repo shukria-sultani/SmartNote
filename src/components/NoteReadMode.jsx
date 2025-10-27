@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import AddNote from "./AddNote";
 import Quiz from "./Quiz";
-
+import Summary from "./Summary";
 export default function NoteReadMode() {
   const { value: notes, setValue: setNotes } = useLocalStorage("notesData");
   const { noteId } = useParams();
@@ -16,10 +16,15 @@ export default function NoteReadMode() {
   const [className, setClassName] = useState("");
   const [openModel, setModelOpen] = useState(false);
   const [openQuiz, setOpenQuiz] = useState(false);
+  const [openSummary, setOpenSummary] = useState(false)
 
   // State to store the fetched or cached quiz questions
   const [quizQuestions, setQuizQuestions] = useState(null);
   const [quizLoading, setQuizLoading] = useState(false);
+
+  //State to store the fetched or cached summary
+  const [noteSummary, setNoteSummary] = useState(null);
+  const [summaryLoading, setSummaryLoading] = useState(false)
 
   // Handle Note Not Found
   if (!note) {
@@ -68,7 +73,6 @@ export default function NoteReadMode() {
         setQuizQuestions(note.quiz);
         setOpenQuiz(true);
         setQuizLoading(false);
-        toast.success("Quiz loaded from note cache!", { duration: 1500 });
         return; // Exit the function to skip API call
       } catch (error) {
         console.error(
@@ -111,7 +115,6 @@ export default function NoteReadMode() {
       const data = await response.json();
       const rawContent = data.choices[0].message.content.trim();
 
-      // Strip surrounding markdown code fences
       const jsonString = rawContent.replace(/^```json\s*|```$/g, "").trim();
 
       if (!jsonString) {
@@ -122,9 +125,7 @@ export default function NoteReadMode() {
 
       const fetchedQuestions = JSON.parse(jsonString);
 
-      // 3. SAVE TO NOTE STRUCTURE AND OPEN QUIZ 📥
-
-      // Update the state of the notes array via the hook setter, adding the 'quiz' property to the current note
+      //Add the quiz questions to the notesData array
       setNotes((prevNotes) => {
         return prevNotes.map((n) =>
           n.id === note.id ? { ...n, quiz: fetchedQuestions } : n
@@ -148,7 +149,66 @@ export default function NoteReadMode() {
       getQuizData();
     }
   };
+// Handle summary
+const handleSummary = async ()=>{
+   setSummaryLoading(true)
+   setNoteSummary(null);
+   try{
+      if(note.summary){
+        setNoteSummary(note.summary);
+        setSummaryLoading(false);
+        setOpenSummary(true)
+        return
+      }
+   }catch(error){
+       console.log("Failed to get data from catch", error)
+   }
+   const summaryPrompt = `Give an accurate, concise, well organized summary based on this content: ${note.content}`
+try{
+   const response = await fetch("https://api.openai.com/v1/chat/completions", {
+       method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: "gpt-4o-mini",
+            temperature: 0.7,
+            max_tokens: 1000,
+            messages: [{ role: "system", content: summaryPrompt }],
+          }),
+        }
+      );
 
+         if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error?.message || response.statusText);
+      }
+   const data = await response.json()
+   const fetchedSummary = data.choices[0].message.content.trim();
+
+
+setNotes((prevNotes) =>{
+   return prevNotes.map(n =>
+    n.id === note.id ? {...n, summary: fetchedSummary} : n
+   )
+ })
+
+   setNoteSummary(fetchedSummary);
+   setOpenSummary(true)
+  }catch(error){
+    console.log(error)
+    toast.error("Could not fetch summary", error);
+  }
+  finally{
+    setSummaryLoading(false)
+  }
+}
+const handleSummaryClick = ()=>{
+  if(!summaryLoading){
+    handleSummary()
+  }
+}
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
@@ -171,8 +231,16 @@ export default function NoteReadMode() {
         <button onClick={handleTakeQuizClick} disabled={quizLoading}>
           {quizLoading ? "Loading Quiz..." : "Take Quiz"}
         </button>
-        <button>AI Summary</button>
+        <button 
+        onClick={handleSummaryClick} disabled={summaryLoading}
+        >
+          {summaryLoading ? "Loading Summary..." : "AI Summary"}
+          
+          </button>
       </div>
+
+
+      
       {/* Edit form*/}
       {openModel && (
         <div className="noteFom-modal">
@@ -198,6 +266,18 @@ export default function NoteReadMode() {
           />
         </div>
       )}
+
+      {/* Note summary */}
+    {
+      openSummary && (
+         <Summary
+          closeSummary= {()=>{
+           setOpenSummary(false)
+        }}
+        summary = {noteSummary}
+        noteTitle= {note.title}></Summary>
+      )
+    }
 
       {/* Note content */}
       <div className={`note-content ${className}`}>
