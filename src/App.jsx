@@ -4,8 +4,9 @@ import './App.css'
 import HomePage from './Components/HomePage'
 import NotePage from './Components/NotePage'
 import NotFound from "./Components/NotFound"
-import {BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom"
 import NoteReadMode from "./Components/NoteReadMode"
+
+import {BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom"
 
 function App() {
 const noteId = useParams()
