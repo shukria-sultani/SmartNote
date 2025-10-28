@@ -78,7 +78,7 @@ export default function NotePage() {
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
-      <Header></Header>
+
       <div className="add-note">
         <button
           onClick={() => {
