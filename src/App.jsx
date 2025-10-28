@@ -8,7 +8,7 @@ import NoteReadMode from "./Components/NoteReadMode.jsx"
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
-function App() {s
+function App() {
   return (
    <div>
    
