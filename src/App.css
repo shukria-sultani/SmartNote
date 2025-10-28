@@ -315,7 +315,7 @@ footer {
   gap: 10px;
 }
 .note-card {
-  height: 370px;
+  height: min(400px);
  
 }
 .note-card ul, ol{
