@@ -1,6 +1,7 @@
 import AddNote from "./AddNote";
-import Filter from "./Filter"
-import Search from "./Search"
+import Filter from "./Filter";
+import Search from "./Search";
+import Header from "./Header"
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 import NoteCard from "./NoteCard"
@@ -78,7 +79,7 @@ export default function NotePage() {
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
-
+<Header></Header>
       <div className="add-note">
         <button
           onClick={() => {
