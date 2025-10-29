@@ -47,24 +47,49 @@ header div ul li .active {
 }
 .hero {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: 50px;
-  padding-top: 80px;
-  background-image: url(./assets/images/Fashion\ Stars\ Sticker\ by\ javadoodles\ -\ Find\ &\ Share\ on\ GIPHY.gif);
+  padding-top: 20px;
+  gap: 40px;
+    height: 100vh;
+    background-image: url(./assets/images/bg.png);
+    background-size: cover;
+    
+}
+.hero p {
+  font-size: larger;
+  padding-top: 20px;
+}
+.hero h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 900;
+  
+}
+.hero a{
+  background-color: rgb(255, 158, 1);
+  margin-top: 10px;
+  padding: 15px 0px;
+  font-size: larger;
+}
+.hero div{
+  display: flex;
+  flex-direction: column;
   background-repeat: no-repeat;
   text-align: center;
   background-position: center;
+
+
 }
-.hero p {
-  font-size: large;
+.hero img{
+  width: min(400px);
+  height: min(400px);
+  border-radius:50%;
+  box-shadow: 0px 5px 5px 5px rgb(166, 207, 1);
 }
-.hero h2 {
-  color: rgb(166, 207, 1);
-  font-size: 2.6rem;
-  text-align: center;
-}
+
 a {
   font-size: medium;
   border-radius: 30px;
@@ -74,18 +99,15 @@ a {
   font-weight: bolder;
   cursor: pointer;
   outline: none;
+  width: min(200px);
+  align-self: center;
   padding: 10px 15px;
 }
-
-.hero a {
-  margin-top: 40px;
-  padding: 15px 25px;
-  background-color: rgb(255, 158, 1);
-}
+ 
 .hero a:hover {
   background-color: rgb(166, 207, 1);
 }
-@media (max-width: 450px) {
+@media (max-width: 776px) {
   header h1 {
     font-size: 1rem;
   }
@@ -98,9 +120,24 @@ a {
     font-weight: bolder;
     text-align: center;
   }
+  .hero {
+    background-position: center;
+  }
+  .hero img{
+   display: none;
+  }
   .noteIcon {
     font-size: 1rem;
   }
+  
+
+}
+@media (min-width: 768px){
+  .hero{
+    height: 80vh;
+    padding: 40px;
+  }
+
 }
 
 footer {
