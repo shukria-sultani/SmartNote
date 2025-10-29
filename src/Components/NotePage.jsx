@@ -1,7 +1,8 @@
 import AddNote from "./AddNote";
 import Filter from "./Filter";
 import Search from "./Search";
-import Header from "./Header"
+import Header from "./Header";
+import NoNote from "./NoNote";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 import NoteCard from "./NoteCard"
@@ -76,11 +77,15 @@ export default function NotePage() {
     setNoteToDeleteId(null);
   };
 
+
+
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
 <Header></Header>
-      <div className="add-note">
+{
+  (Array.isArray(notes) && notes.length > 0) ? (
+         <div className="add-note">
         <button
           onClick={() => {
             setModelOpen(true);
@@ -89,6 +94,10 @@ export default function NotePage() {
           <FaPlus></FaPlus>
         </button>
       </div>
+  ) :
+  null
+}
+   
 
       {isModalOpen && (
         <div className="noteFom-modal">
@@ -101,11 +110,22 @@ export default function NotePage() {
            formTitle={"Add a New Note"}></AddNote>
         </div>
       )}
-      <div className="search-filter">
+   {(Array.isArray(notes) && notes.length > 0) || uniqueSubjects.length > 0 ? (
+    <div className="search-filter">
         <Search setSearch={setSearchTerm}></Search>
         <Filter subjects={uniqueSubjects} setFilter={setFilterTerm}></Filter>
-      </div>
-      <div className="notes-card-container">
+    </div>
+) : null}
+
+
+ {
+   (Array.isArray(searchResult) && searchResult.length === 0 ) ? (
+    <NoNote
+      openForm={()=> {setModelOpen(true)}}
+    ></NoNote>
+   ):
+   (
+    <div className="notes-card-container">
         {Array.isArray(searchResult) &&
           searchResult.map((note, index) => {
             if (!note || typeof note !== "object") return null;
@@ -119,6 +139,9 @@ export default function NotePage() {
             );
           })}
       </div>
+   )
+ }
+      
       <DeleteModal
         noteId={noteToDeleteId}
         onConfirm={confirmDeletion}

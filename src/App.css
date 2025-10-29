@@ -52,7 +52,10 @@ header div ul li .active {
   flex-direction: column;
   padding: 50px;
   padding-top: 80px;
+  background-image: url(./assets/images/Fashion\ Stars\ Sticker\ by\ javadoodles\ -\ Find\ &\ Share\ on\ GIPHY.gif);
+  background-repeat: no-repeat;
   text-align: center;
+  background-position: center;
 }
 .hero p {
   font-size: large;
@@ -79,7 +82,7 @@ a {
   padding: 15px 25px;
   background-color: rgb(255, 158, 1);
 }
-.hero a:hover{
+.hero a:hover {
   background-color: rgb(166, 207, 1);
 }
 @media (max-width: 450px) {
@@ -95,7 +98,7 @@ a {
     font-weight: bolder;
     text-align: center;
   }
-  .noteIcon{
+  .noteIcon {
     font-size: 1rem;
   }
 }
@@ -107,7 +110,6 @@ footer {
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-
 }
 .social-media .social-icon {
   color: rgb(255, 158, 1);
@@ -211,7 +213,7 @@ footer {
   font-weight: border;
   margin-left: auto;
 }
-.closeIcon:hover{
+.closeIcon:hover {
   background-color: rgb(166, 207, 1);
 }
 .noteForm-container form {
@@ -308,7 +310,6 @@ footer {
 .notes-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
-  grid-template-rows: max-content;
   align-items: center;
   justify-content: center;
   padding: 50px;
@@ -316,9 +317,9 @@ footer {
 }
 .note-card {
   height: min(400px);
- 
 }
-.note-card ul, ol{
+.note-card ul,
+ol {
   padding-left: 30px;
 }
 .notes-card-container .main-container {
@@ -332,7 +333,6 @@ footer {
   padding-top: 10px;
 
   text-align: justify;
-  
 }
 .notes-card-container .main-container:hover .actions {
   display: block;
@@ -360,7 +360,7 @@ footer {
   cursor: pointer;
   font-weight: bolder;
 }
-.notes-card-container .actions button:hover{
+.notes-card-container .actions button:hover {
   background-color: rgb(166, 207, 1);
 }
 @media (max-width: 768px) {
@@ -423,7 +423,8 @@ footer {
   text-align: justify;
   line-height: 30px;
 }
-.note-content ol, ul {
+.note-content ol,
+ul {
   padding-left: 30px;
 }
 
@@ -455,34 +456,32 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
-.arrow:hover{
+.arrow:hover {
   background-color: rgb(166, 207, 1);
 }
 /* Quill editor */
 .ql-editor {
-    min-height: 200px; 
-    max-height: 30vh; 
-    overflow-y: auto;
+  min-height: 200px;
+  max-height: 30vh;
+  overflow-y: auto;
 }
 
-.ql-snow.ql-toolbar .ql-picker-label:hover{
+.ql-snow.ql-toolbar .ql-picker-label:hover {
   background-color: rgb(255, 158, 1);
-
 }
-.ql-snow.ql-toolbar button:hover{
+.ql-snow.ql-toolbar button:hover {
   background-color: rgb(255, 158, 1);
   color: black;
 }
 
-
-.action-buttons{
+.action-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.action-buttons button{
+.action-buttons button {
   padding: 7px 20px;
   background-color: rgb(255, 158, 1);
   border-radius: 20px;
@@ -492,7 +491,7 @@ footer {
   border: none;
   font-weight: bolder;
 }
-button{
+button {
   background-color: rgb(255, 158, 1);
   border-radius: 20px;
   padding: 10px 20px;
@@ -500,13 +499,12 @@ button{
   font-weight: bolder;
   font-size: medium;
   cursor: pointer;
- 
 }
-button:hover{
-background-color: rgb(166, 207, 1);
-border: none;
+button:hover {
+  background-color: rgb(166, 207, 1);
+  border: none;
 }
-.summary-container, .quiz-container{
+.quiz-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -516,45 +514,45 @@ border: none;
   width: 100%;
   background-color: rgba(244, 244, 244);
 }
-.question h3{
+.question h3 {
   padding-top: 15px;
 }
-.question ul{
+.question ul {
   width: 100%;
   align-self: center;
   margin-top: 5px;
 }
-.question li{
-   border: 2px solid rgb(255, 158, 1);
-   padding: 10px 10px;
-   margin-top: 5px;
-   cursor: pointer;
-   width: 100%;
-   list-style: none;
-   border-radius: 10px;
+.question li {
+  border: 2px solid rgb(255, 158, 1);
+  padding: 10px 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  width: 100%;
+  list-style: none;
+  border-radius: 10px;
 }
 .question {
-width: 100%;
-display: flex;
-justify-content: center;
-align-items:center;
-max-width: 400px;
-padding: 30px;
-border-radius: 20px;
-flex-direction: column;
-box-shadow: 0px 1px 5px #d1d8dd;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  flex-direction: column;
+  box-shadow: 0px 1px 5px #d1d8dd;
 }
-.question button{
+.question button {
   margin-top: 10px;
   width: 80%;
 }
-.correct{
+.correct {
   background-color: rgb(166, 207, 1);
 }
-.incorrect{
+.incorrect {
   background-color: rgb(244, 77, 77);
 }
-.quiz-result{
+.quiz-result {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -563,8 +561,16 @@ box-shadow: 0px 1px 5px #d1d8dd;
   padding: 30px;
   box-shadow: 0px 1px 5px #d1d8dd;
 }
-
-.note-summary{
+.summary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  height: min(100vh);
+}
+.note-summary {
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -572,24 +578,40 @@ box-shadow: 0px 1px 5px #d1d8dd;
   height: auto;
   padding: 20px;
   z-index: 10;
+    border-radius: 20px;
+
   margin-bottom: 20px;
-  box-shadow: 0px 1px 5px #d1d8dd; 
+  box-shadow: 0px 1px 5px #d1d8dd;
 }
-.note-summary p{
+.note-summary p {
   line-height: 25px;
 }
 @media (max-width: 678px) {
-  .summary-container{
-  height: max-content;
-  width: 100%;
-  padding: 30px;
+  .summary-container {
+    height: auto;
+    width: 100%;
+    align-items: flex-start;
+    padding: 30px;
+  }
+  .note-summary h2 {
+    font-size: 1.4rem;
+  }
+  .note-summary {
+    padding: 20px;
+    width: 100%;
+    height: max-content;
+  }
 }
-.note-summary h2{
-  font-size: 1.4rem;
+.no-note{
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  gap: 10px;
 }
-.note-summary{
-  padding: 20px;
-  width: 100%;
-  height: max-content;
-}
+.no-note img{
+  width: min(300px);
+  height: min(260px);
+  border-radius: 50%;
 }
