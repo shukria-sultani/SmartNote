@@ -652,3 +652,172 @@ button:hover {
   height: min(260px);
   border-radius: 50%;
 }
+
+.why-smartNote{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #E6F0DA;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 10px;
+}
+.why-smartNote h1{
+  font-size: 3rem;
+  font-weight: 900;
+
+}
+
+.why-smartNote div h2{
+  font-size: 2.6rem;
+}
+.why-smartNote div h4{
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+.why-smartNote img{
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  align-self: center;
+}
+
+.problem-solution {
+    background-image: url(./assets/images/unnamed\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px; 
+    gap: 60px; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.problems, .solutions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px; 
+    gap: 30px;
+}
+
+.problems h1, .solutions h1 {
+    font-size: 2.5em; 
+    color: #1a1a1a; 
+    margin-bottom: 10px;
+}
+
+.problems p, .solutions p {
+    font-size: 1.1em;
+    max-width: 700px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+.problem-cards{
+    display: flex;
+    justify-content: center;
+    padding: 0; 
+    gap: 30px; 
+    align-items: stretch; 
+}
+
+.problem-cards div{
+    max-width: 320px; 
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    background-color: rgba(255, 255, 255, 0.95); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
+}
+.solutions{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.solution-card {
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 30px;
+padding-bottom: 30px;
+
+}
+.solution-card div{
+  max-width: 320px;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    background-color: rgba(255, 255, 255, 0.95); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
+}
+
+.problem-cards div {
+      box-shadow: 0 20px 40px rgba(166, 207, 1, 0.2); 
+}
+
+.solution-card div {   
+   box-shadow: 0 20px 40px rgba(255, 158, 1, 0.2); 
+
+}
+.problem-cards div h3, .solution-card div h3 {
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #2c3e50; 
+}
+
+
+.problem-cards div svg, .solution-card div svg {
+    color: rgb(166, 207, 1);
+    font-size: 2.5em; 
+}
+.search{
+  font-size: 4rem;
+}
+.solution-card div svg {
+    color: rgb(166, 207, 1); 
+}
+
+.problem-cards div:hover, .solution-card div:hover {
+    transform: translateY(-10px);
+}
+
+
+
+@media (max-width: 900px) {
+    .problem-cards, .solution-card {
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+        padding: 0 20px; 
+    }
+    
+    .problem-cards div, .solution-card div {
+        max-width: 100%; 
+        width: 100%;
+        box-sizing: border-box; 
+    }
+    
+    .problems, .solutions {
+        padding: 30px 10px; 
+        gap: 30px;
+    }
+    
+    .problem-solution {
+        padding: 40px 0; 
+        gap: 40px;
+    }
+    
+    .problems h1, .solutions h1 {
+        font-size: 2em; 
+    }
+}
