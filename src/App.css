@@ -56,7 +56,7 @@ header div ul li .active {
     height: 100vh;
     background-image: url(./assets/images/bg.png);
     background-size: cover;
-    
+    overflow: hidden;
 }
 .hero p {
   font-size: larger;
@@ -80,7 +80,8 @@ header div ul li .active {
   background-repeat: no-repeat;
   text-align: center;
   background-position: center;
-
+ opacity: 0; 
+    animation: slideInBounceText 1.2s ease-out forwards;
 
 }
 .hero img{
@@ -88,6 +89,9 @@ header div ul li .active {
   height: min(400px);
   border-radius:50%;
   box-shadow: 0px 5px 5px 5px rgb(166, 207, 1);
+  opacity: 0; 
+    animation: slideInBounceImage 1.2s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
 a {
@@ -132,6 +136,46 @@ a {
   
 
 }
+@keyframes flyIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInBounceText {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframe Animation for the Image */
+@keyframes slideInBounceImage {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+          opacity: 1;
+    }
+}
 @media (min-width: 768px){
   .hero{
     height: 80vh;
@@ -171,16 +215,6 @@ footer {
   animation-fill-mode: forwards;
 }
 
-@keyframes flyIn {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 .not-found a {
   background-color: rgb(255, 158, 1);
@@ -218,14 +252,18 @@ footer {
   font-size: 1.4rem;
 }
 .noteFom-modal {
-  background-color: rgba(244, 244, 244, 0.6);
-  width: 100%;
-  position: sticky;
-  z-index: 10;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  padding-top: 20px;
+
 }
 .noteForm-container {
   display: flex;
@@ -237,7 +275,6 @@ footer {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   max-width: 1000px;
   width: 100%;
-  margin: 0px auto;
   gap: 20px;
   justify-content: center;
 }
@@ -345,15 +382,19 @@ footer {
   padding: 7px 15px;
 }
 .notes-card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
-  align-items: center;
+
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding: 50px;
-  gap: 10px;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 40px;
+  flex-wrap: wrap;
 }
+
 .note-card {
   height: min(400px);
+  max-width: 350px;
 }
 .note-card ul,
 ol {
