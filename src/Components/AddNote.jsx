@@ -40,6 +40,9 @@ setNoteData({
     });
    } 
   };
+
+
+  
   return (
     <>
       <div className="noteForm-container">
@@ -74,6 +77,7 @@ setNoteData({
             value={noteData.subject}
             onChange={handleChange}
           />
+         
           <label htmlFor="content">Enter the note content:</label>
           <ReactQuill
             theme="snow"

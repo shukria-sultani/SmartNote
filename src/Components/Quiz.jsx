@@ -13,7 +13,7 @@ export default function Quiz({closeQuiz, questions}) {
     const currentQuestion = questions[currentIndex];
 
     const isLastQuestion = currentIndex === questions.length - 1;
-    const isQuizFinished = isLastQuestion && answerRevealed; 
+    const isQuizFinished = currentIndex === questions.length - 1 && answerRevealed; 
 
 
     const handleNext = () => {
@@ -68,41 +68,52 @@ export default function Quiz({closeQuiz, questions}) {
         }
         return '';
     };
-     if (!questions || questions.length === 0) {
+    
+    
+    // 1. Error/Empty State
+    if (!questions || questions.length === 0) {
         return (
             <div className="quiz-container">
-                <div className="quiz-result-container p-8 text-center">
-                    <CloseIcon className="closeIcon" onClick={closeQuiz} />
+                <div className="quiz-error-screen"> 
+                    <IoMdClose className="closeIcon" onClick={closeQuiz} /> 
                     <h2>Error: No Quiz Available</h2>
-                    <p>The questions could not be loaded. Please try again.</p>
-                </div>
-            </div>
-        );
-    }
-    if (isQuizFinished) {
-        return (
-            <div className="quiz-container">
-                <div className="quiz-result-container">
-                    <div className="quiz-result">
-                                          <IoMdClose className="closeIcon" onClick={closeQuiz} />
-
-                        <h2>Quiz Complete!</h2>
-                        <p className="score-text">
-                            You scored {score} out of {questions.length}
-                        </p>
-                        <button className="try-again-button" onClick={handleTryAgain}>Try Again</button>
-                    </div>
+                    <p>The questions could not be loaded or generated. Please try again.</p>
                 </div>
             </div>
         );
     }
     
+    // 2. Quiz Finished State
+    if (isQuizFinished) {
+        return (
+            <div className="quiz-container">
+                <div className="quiz-result-container">
+                    <IoMdClose className="closeIcon" onClick={closeQuiz} />
+                    <h2>Quiz Complete! 🎉</h2>
+                    <p className="score-text">
+                        You scored {score} out of {questions.length}
+                    </p>
+                    <button className="try-again-button" onClick={handleTryAgain}>Try Again</button>
+                </div>
+            </div>
+        );
+    }
+    
+    // 3. Main Question View
     return (
         <div className="quiz-container">
             <div className="question">
                 <IoMdClose className="closeIcon" onClick={closeQuiz} />
-                <h3>{currentQuestion.question} ({currentIndex + 1}/{questions.length})</h3>
-                <p className="current-score">Current Score: {score}</p>
+                
+                <h3>
+                    {currentQuestion.question} 
+                    <span style={{ display: 'block', fontSize: '0.8em', fontWeight: 'normal', color: '#666', marginTop: '5px' }}>
+                        ({currentIndex + 1} of {questions.length})
+                    </span>
+                </h3>
+                
+                <p className="current-score">Score: {score}</p>
+                
                 <ul>
                     {Object.entries(currentQuestion.options).map(([key, value]) => (
                         <li 
@@ -116,18 +127,20 @@ export default function Quiz({closeQuiz, questions}) {
                     ))}
                 </ul>
 
-                <button 
-                    onClick={handlePrev} 
-                    disabled={currentIndex === 0}
-                >
-                    Previous
-                </button>
-                <button 
-                    onClick={handleNext} 
-                    disabled={!answerRevealed || isLastQuestion}
-                >
-                    {isLastQuestion ? "Finish" : "Next"}
-                </button>
+                <div className="quiz-navigation-buttons">
+                    <button 
+                        onClick={handlePrev} 
+                        disabled={currentIndex === 0}
+                    >
+                        Previous
+                    </button>
+                    <button 
+                        onClick={handleNext} 
+                        disabled={!answerRevealed || isLastQuestion}
+                    >
+                        {isLastQuestion ? "View Score" : "Next"}
+                    </button>
+                </div>
             </div>
         </div>
     );
