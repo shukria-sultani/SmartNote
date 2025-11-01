@@ -1,10 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 
-
 export default function Quiz({closeQuiz, questions}) {
-
-    
     const [currentIndex, setCurrentIndex] = useState(0);
     const [chosenAnswer, setChosenAnswer] = useState(null);
     const [answerRevealed, setAnswerRevealed] = useState(false);
@@ -68,8 +65,13 @@ export default function Quiz({closeQuiz, questions}) {
         }
         return '';
     };
-    
-    
+    // Handle main vertical scroll
+      useEffect(() => {
+            document.body.classList.add('no-scroll');
+                    return () => {
+                document.body.classList.remove('no-scroll');
+            };
+        }, []);
     // 1. Error/Empty State
     if (!questions || questions.length === 0) {
         return (

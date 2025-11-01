@@ -2,6 +2,7 @@ import { LuNotebookText } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import ReactQuill from "react-quill-new";
+import { useEffect } from "react";
 import "react-quill-new/dist/quill.snow.css";
 export default function AddNote({ onSubmit, initialNoteData = null, formTitle, closeModel, buttonText}) {
   const [noteData, setNoteData] = useState(
@@ -41,7 +42,13 @@ setNoteData({
    } 
   };
 
-
+ // Handle main vertical scroll
+      useEffect(() => {
+            document.body.classList.add('no-scroll');
+                    return () => {
+                document.body.classList.remove('no-scroll');
+            };
+        }, []);
   
   return (
     <>

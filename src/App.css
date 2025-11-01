@@ -231,7 +231,6 @@ footer {
 
 .add-note {
   display: flex;
-
   position: fixed;
   bottom: 0;
   right: 0;
@@ -262,6 +261,7 @@ footer {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow-y: auto;
   padding-top: 20px;
 
 }
@@ -617,7 +617,9 @@ button:hover {
     cursor: pointer;
     color: #333;
 }
-
+.no-scroll {
+    overflow: hidden;
+}
 .question h3 {
   padding-top: 15px;
   margin-bottom: 20px;
@@ -754,9 +756,10 @@ button:hover {
 .note-summary {
   display: flex;
   flex-direction: column;
-  width: min(80%, 800px);
+   max-width: 80%;
   max-height: 90vh;
   overflow-y: auto;
+  overflow-wrap: break-word;
   background-color: #fff;
   border-radius: 20px;
   padding: 30px;
@@ -789,11 +792,16 @@ button:hover {
     padding: 10px;
   }
   .note-summary {
-    width: 95%;
-    height: 95vh;
-    max-height: 95vh;
-    padding: 20px;
+    max-width: 100%;
+    height: max-content;
+    padding: 40px;
+
   }
+  .note-summary pre, 
+    .note-summary code {
+        white-space: pre-wrap; 
+        word-break: break-all; 
+    }
   .note-summary h2 {
     font-size: 1.4rem;
   }
