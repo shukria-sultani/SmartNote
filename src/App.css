@@ -45,6 +45,18 @@ header div ul li .active {
   border-radius: 20px;
   padding: 7px 14px;
 }
+.menu-icon{
+  display: none;
+}
+@media (max-width: 575px){
+
+  header{
+    justify-content: center;
+  }
+  .menu-icon{
+    display: block;
+  }
+}
 .hero {
   display: flex;
   justify-content: space-evenly;
@@ -115,14 +127,13 @@ a {
   header h1 {
     font-size: 1rem;
   }
-  header {
-    justify-content: center;
-    gap: 2px;
-  }
+
   header div ul li .active {
     padding: 5px 5px;
     font-weight: bolder;
     text-align: center;
+    background-color: transparent;
+    color: rgb(255, 158, 1);
   }
   .hero {
     background-position: center;
@@ -941,19 +952,7 @@ padding-bottom: 30px;
 
 
 @media (max-width: 900px) {
-    /* .problem-cards, .solution-card {
-        flex-direction: column; 
-        align-items: center;
-        width: 100%;
-        padding: 0 20px; 
-    } */
-/*     
-    .problem-cards div, .solution-card div {
-        max-width: 100%; 
-        width: 100%;
-        box-sizing: border-box; 
-    } */
-    
+ 
     .problems, .solutions {
         padding: 30px 10px; 
         gap: 30px;
@@ -977,6 +976,12 @@ padding-bottom: 30px;
   background-repeat: no-repeat;
   padding: 10px 0px;
 
+}
+.about-container p{
+  text-align: center;
+}
+.about-container h2{
+  text-align: center;
 }
 .vision{
   display: flex;
@@ -1013,12 +1018,14 @@ padding-bottom: 30px;
   flex-direction: column;
   gap: 30px;
   margin-top: 30px;
+  padding: 30px;
 }
 .philosophy div{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  flex-wrap: wrap;
 
 }
 .philosophy div div{
@@ -1029,13 +1036,15 @@ padding-bottom: 30px;
   box-shadow: 0px 0px 2px 2px rgb(166, 207, 1);
   padding: 40px;
   border-radius: 20px;
+  max-width: 300px;
 }
 .creater{
   margin-top: 60px;
 }
 .creater div{
   background-color: rgba(166, 207, 1, 0.5);
-  max-width: 50%;
+  width: 100%;
+  max-width: max-content;
   padding: 30px;
   text-align: center;
   border-radius: 20px;
@@ -1046,6 +1055,11 @@ padding-bottom: 30px;
   color: rgb(255, 158, 1);
   padding-left: 0px;
   
+}
+@media(min-width: 900px){
+   .creater div{
+    max-width: 60%;
+   }
 }
 .contribution{
   margin-top: 60px;
@@ -1069,6 +1083,7 @@ padding-bottom: 30px;
   align-items: center;
   justify-content: center;
  gap: 30px;
+ flex-wrap: wrap;
 
 }
 .contribution-options div div{
