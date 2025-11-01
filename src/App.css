@@ -968,3 +968,118 @@ padding-bottom: 30px;
         font-size: 2em; 
     }
 }
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  background-image: url(./assets/images/about.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10px 0px;
+
+}
+.vision{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  margin-top: 30px;
+  
+}
+.vision h2, .philosophy h2, .creater h2, .contribution h2{
+  font-size: 2rem;
+}
+.vision svg, .philosophy svg{
+  color: rgb(255, 158, 1);
+  font-size: 3rem;
+  padding-right: 5px;
+}
+
+.philosophy svg{
+  color: rgb(166, 207, 1);
+}
+
+.goalIcon{
+ width: 3rem;
+ height: auto;
+ 
+}
+.philosophy, .creater, .contribution{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+.philosophy div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+}
+.philosophy div div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 2px 2px rgb(166, 207, 1);
+  padding: 40px;
+  border-radius: 20px;
+}
+.creater{
+  margin-top: 60px;
+}
+.creater div{
+  background-color: rgba(166, 207, 1, 0.5);
+  max-width: 50%;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+}
+.creater div svg{
+  width: 40px;
+  height: auto;
+  color: rgb(255, 158, 1);
+  padding-left: 0px;
+  
+}
+.contribution{
+  margin-top: 60px;
+  justify-content: center;
+}
+.contribution h4{
+  font-size: 1.4rem;
+}
+.contribution li{
+  list-style-type: none;
+}
+.contribution-options{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.contribution-options div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ gap: 30px;
+
+}
+.contribution-options div div{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 300px;
+  box-shadow: 0px 0px 2px 2px rgb(166, 207, 1);
+  padding: 30px;
+}
+.contribution-options a{
+  background-color: rgba(166, 207, 1, 0.5);
+  text-align: center;
+}

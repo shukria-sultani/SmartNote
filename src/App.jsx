@@ -7,6 +7,7 @@ import NotFound from "./Components/NotFound.jsx"
 import NoteReadMode from "./Components/NoteReadMode.jsx"
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import About from './Components/About.jsx'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route  path='/notes' element={<NotePage></NotePage>} />
           <Route  path='*'  element={<NotFound></NotFound>} />
           <Route  path='/read/:noteId'  element={<NoteReadMode></NoteReadMode>} />
+          <Route  path='/about' element={<About></About>}/>
         </Routes>
 
     </Router>
