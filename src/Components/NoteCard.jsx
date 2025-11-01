@@ -9,7 +9,6 @@ export default function NoteCard({note, onDelete}) {
     <>
           <div className="main-container">
                 <div className="actions">
-         
                   <button onClick={()=>{readNote(note.id)}}>Read</button>
                   <button onClick={() => onDelete(note.id)}>Delete</button>
                 
