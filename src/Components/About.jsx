@@ -1,25 +1,68 @@
 import Header from "./Header";
-import { FaLightbulb } from "react-icons/fa6";
+import Footer from "./Footer"
+import { FaLightbulb, FaMessage } from "react-icons/fa6";
 import { FaBrain } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 import { GoalIcon } from "lucide-react";
 import { QuoteIcon } from "lucide-react";
-import { CheckCircle } from "lucide-react";
 import { StarIcon } from "lucide-react";
 import { Code } from "lucide-react";
 import { FcCollaboration } from "react-icons/fc";
 import { Paintbrush2 } from "lucide-react";
+import { FaUser } from "react-icons/fa";
+
+import contactImg from "../assets/images/contact.jpg";
+import { MdEmail } from "react-icons/md";
+import { useState } from "react";
+
+import emailjs from "@emailjs/browser"
+import toast, { Toaster } from "react-hot-toast";
 export default function About() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+const handleSubmit = async(e)=>{
+   e.preventDefault();
+    const serviceId = "service_g6hge3g"
+  const templateId = "template_lgyafb3"
+  const publicKey = "T8RQaGSnAUyZ0psqU"
+
+  const templateParams = {
+      formName: name,
+      formEmail: email,
+      recipient: "Shukria",
+      message: message
+  }
+  try{
+    const response = emailjs.send(serviceId, templateId, templateParams, publicKey);
+  if(response){
+    toast.success("Thanks for contacting me! Email has sent successfully")
+  }
+  setName("")
+  setEmail("")
+  setMessage("")
+  }catch(error){
+     toast.error("Falid to send the email, try again.")
+     console.log(error)
+  }
+
+
+}
+
+
   return (
     <>
       <Header></Header>
+      <Toaster></Toaster>
       <div className="about-container">
         <div className="vision">
-          <h2>                      <FaLightbulb style={{fontSize: "2.3rem"}}></FaLightbulb>
- About SmartNote: My Vision for Smarter Thinking</h2>
+          <h2>
+            {" "}
+            <FaLightbulb style={{ fontSize: "2.3rem" }}></FaLightbulb>
+            About SmartNote: My Vision for Smarter Thinking
+          </h2>
 
           <p>
-
             At SmartNote, we believe your ideas are your most valuable asset.
             Our vision is to move note-taking beyond simple recording and toward
             intelligent knowledge activation. We aim to eliminate the chaos of
@@ -31,7 +74,17 @@ export default function About() {
         </div>
 
         <div className="philosophy">
-          <h2><StarIcon className="star" style={{color:"rgb(255, 158, 1)", width:"40px", height:"auto"}}></StarIcon>My Philosopy: Clarity, Control, and Continous Learning</h2>
+          <h2>
+            <StarIcon
+              className="star"
+              style={{
+                color: "rgb(255, 158, 1)",
+                width: "40px",
+                height: "auto",
+              }}
+            ></StarIcon>
+            My Philosopy: Clarity, Control, and Continous Learning
+          </h2>
           <div>
             <div>
               <GoalIcon className="goalIcon"></GoalIcon>
@@ -49,17 +102,26 @@ export default function About() {
         </div>
 
         <div className="creater">
-          <h2><Code style={{color:"rgb(255, 158, 1)", width:"40px", height:"auto"}}></Code> Meet the Developer</h2>
+          <h2>
+            <Code
+              style={{
+                color: "rgb(255, 158, 1)",
+                width: "40px",
+                height: "auto",
+              }}
+            ></Code>{" "}
+            Meet the Developer
+          </h2>
           <div>
             <QuoteIcon></QuoteIcon>
             <p>
-              Hi, I'm <strong>Shukria Sultani</strong>, a Frontend Developer based in
-              Afghanistan. Throughout my journey as a student and developer, I
-              constantly dealt with complex lecture notes and documentations,
-              and realized that existing note apps only tracked ideas—they
-              didn't manage them. Driven by the need for a smarter system, I
-              built SmartNote. It combines my background in UX design and
-              frontend development with powerful AI to transform how you
+              Hi, I'm <strong>Shukria Sultani</strong>, a Frontend Developer
+              based in Afghanistan. Throughout my journey as a student and
+              developer, I constantly dealt with complex lecture notes and
+              documentations, and realized that existing note apps only tracked
+              ideas—they didn't manage them. Driven by the need for a smarter
+              system, I built SmartNote. It combines my background in UX design
+              and frontend development with powerful AI to transform how you
               interact with your own thoughts.
             </p>
             <QuoteIcon></QuoteIcon>
@@ -67,29 +129,114 @@ export default function About() {
         </div>
 
         <div className="contribution">
-          <h2><FcCollaboration style={{color:"rgb(255, 158, 1)", width:"40px", height:"auto"}} ></FcCollaboration> Contribute to SmartNote: Join the Mission</h2>
-       <div className="contribution-options">
+          <h2>
+            <FcCollaboration
+              style={{
+                color: "rgb(255, 158, 1)",
+                width: "40px",
+                height: "auto",
+              }}
+            ></FcCollaboration>{" "}
+            Contribute to SmartNote: Join the Mission
+          </h2>
+          <div className="contribution-options">
             <h4>How You Can Help</h4>
             <p>
               I believe in open development. Every contribution, big or small,
               helps turn SmartNote into the best tool it can be.
             </p>
-           <div>
+            <div>
               <div>
-                <Code style={{color:"rgb(166, 207, 1)", width:"70px", height:"auto"}}></Code> <strong>Code Contributions:</strong>{" "}
-                Help me refine features, improve performance, and build out the
-                next generation of smart tools
+                <Code
+                  style={{
+                    color: "rgb(166, 207, 1)",
+                    width: "70px",
+                    height: "auto",
+                  }}
+                ></Code>{" "}
+                <strong>Code Contributions:</strong> Help me refine features,
+                improve performance, and build out the next generation of smart
+                tools
               </div>
               <div>
-                <Paintbrush2 style={{color:"rgb(166, 207, 1)", width:"60px", height:"auto"}}></Paintbrush2>
-                <strong> Design & UX:</strong> Help me
-                perfect the user experience and visual design, ensuring
-                SmartNote remains clean and intuitive.
+                <Paintbrush2
+                  style={{
+                    color: "rgb(166, 207, 1)",
+                    width: "60px",
+                    height: "auto",
+                  }}
+                ></Paintbrush2>
+                <strong> Design & UX:</strong> Help me perfect the user
+                experience and visual design, ensuring SmartNote remains clean
+                and intuitive.
               </div>
             </div>
-              <a href="https://github.com/shukria-sultani/SmartNote" target="_blank">GitHub Repository</a> 
+            <a
+              href="https://github.com/shukria-sultani/SmartNote"
+              target="_blank"
+            >
+              GitHub Repository
+            </a>
           </div>
         </div>
+
+        <div className="contact-form">
+          <img src={contactImg} alt="" />
+          <form action="" onSubmit={handleSubmit}>
+            <h2>Contact Me</h2>
+            <div>
+              <label htmlFor="name">
+                <FaUser></FaUser>
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                name="name"
+                placeholder="Shukria"
+                onChange={(e) => {
+                  setName(e.target.value)
+                }}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="email">
+                <MdEmail></MdEmail>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                placeholder="shukria@gmail.com"
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="message" id="message" style={{ top: "20%" }}>
+                <FaMessage></FaMessage>
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                value={message}
+                placeholder="Message..."
+                onChange={(e) => {
+                  setMessage(e.target.value)
+                }}
+                required
+              ></textarea>
+            </div>
+            <button>Send Message</button>
+          </form>
+        </div>
+
+
+        <Footer></Footer>
       </div>
     </>
   );
