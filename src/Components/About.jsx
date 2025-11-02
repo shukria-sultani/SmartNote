@@ -68,7 +68,7 @@ export default function About() {
 
         <div className="contribution">
           <h2><FcCollaboration style={{color:"rgb(255, 158, 1)", width:"40px", height:"auto"}} ></FcCollaboration> Contribute to SmartNote: Join the Mission</h2>
-          <div className="contribution-options">
+       <div className="contribution-options">
             <h4>How You Can Help</h4>
             <p>
               I believe in open development. Every contribution, big or small,
@@ -76,12 +76,12 @@ export default function About() {
             </p>
            <div>
               <div>
-                <Code style={{color:"rgb(166, 207, 1)", width:"30px", height:"auto"}}></Code> <strong>Code Contributions:</strong>{" "}
+                <Code style={{color:"rgb(166, 207, 1)", width:"70px", height:"auto"}}></Code> <strong>Code Contributions:</strong>{" "}
                 Help me refine features, improve performance, and build out the
                 next generation of smart tools
               </div>
               <div>
-                <Paintbrush2 style={{color:"rgb(166, 207, 1)", width:"30px", height:"auto"}}></Paintbrush2>
+                <Paintbrush2 style={{color:"rgb(166, 207, 1)", width:"60px", height:"auto"}}></Paintbrush2>
                 <strong> Design & UX:</strong> Help me
                 perfect the user experience and visual design, ensuring
                 SmartNote remains clean and intuitive.
