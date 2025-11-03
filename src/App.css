@@ -615,6 +615,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .action-buttons button {
@@ -823,7 +824,9 @@ button:hover {
   z-index: 1001;
   gap: 20px;
 }
-
+.note-summary button{
+  max-width: 300px;
+}
 .closeIcon {
     position: absolute;
     top: 15px;
