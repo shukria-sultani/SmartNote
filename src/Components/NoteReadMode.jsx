@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaDownload } from "react-icons/fa"; 
+import { FaArrowLeft, FaDownload } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import Summary from "./Summary";
 import AddNote from "./AddNote";
-import { usePDF } from "react-to-pdf"; 
+import { usePDF } from "react-to-pdf";
 import { MdSummarize } from "react-icons/md";
 import { FaQuestionCircle } from "react-icons/fa";
 import { Edit3 } from "lucide-react";
@@ -14,15 +14,15 @@ import Quiz from "./Quiz";
 export default function NoteReadMode() {
   const { value: notes, setValue: setNotes } = useLocalStorage("notesData");
   const { noteId } = useParams();
-  const note = notes.find((n) => n.id === Number(noteId)); 
+  const note = notes.find((n) => n.id === Number(noteId));
 
   const { toPDF, targetRef } = usePDF({
     filename: `${note?.title || "Note"}_Export.pdf`,
-    resolution: 5, 
-    page: { margin: 25.4 }, 
-  }); 
-  const [noteAreaColor, setNoteAreaColor] = useState("White");
-  const [className, setClassName] = useState("");
+    resolution: 5,
+    page: { margin: 25.4 },
+  });
+
+  const [noteAreaColor, setNoteAreaColor] = useState("#fff");
   const [openModel, setModelOpen] = useState(false);
   const [openQuiz, setOpenQuiz] = useState(false);
   const [openSummary, setOpenSummary] = useState(false); // State to store the fetched or cached quiz questions
@@ -43,20 +43,6 @@ export default function NoteReadMode() {
 
   const navigate = useNavigate();
 
-  const handleColorChange = (color) => {
-    setNoteAreaColor(color);
-  };
-
-  useEffect(() => {
-    if (noteAreaColor === "White") {
-      setClassName("white-area");
-    } else if (noteAreaColor === "Sepia") {
-      setClassName("sepia-area");
-    } else if (noteAreaColor === "Light Green") {
-      setClassName("lightGreen-area");
-    }
-  }, [noteAreaColor]);
-
   const handleUpdate = (updatedNote) => {
     setNotes((prevNotes) => {
       return prevNotes.map((n) => (n.id === updatedNote.id ? updatedNote : n));
@@ -65,7 +51,7 @@ export default function NoteReadMode() {
     toast.success("Note successfully Updated!", {
       duration: 3000,
     });
-  }; 
+  };
 
   const getQuizData = async () => {
     setQuizLoading(true);
@@ -151,7 +137,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
     if (!quizLoading) {
       getQuizData();
     }
-  }; // Summary logic 
+  }; // Summary logic
 
   const handleSummary = async () => {
     setSummaryLoading(true);
@@ -229,14 +215,16 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
             setModelOpen(true);
           }}
         >
-         <Edit3 style={{width: "18px", height: "auto"}}></Edit3> Edit Note
+          <Edit3 style={{ width: "18px", height: "auto" }}></Edit3> Edit Note
         </button>
 
         <button onClick={handleTakeQuizClick} disabled={quizLoading}>
-         <FaQuestionCircle></FaQuestionCircle> {quizLoading ? " Loading Quiz..." : " Take Quiz"}
+          <FaQuestionCircle></FaQuestionCircle>{" "}
+          {quizLoading ? " Loading Quiz..." : " Take Quiz"}
         </button>
         <button onClick={handleSummaryClick} disabled={summaryLoading}>
-          <MdSummarize></MdSummarize>{summaryLoading ? " Loading Summary..." : " AI Summary"}
+          <MdSummarize></MdSummarize>
+          {summaryLoading ? " Loading Summary..." : " AI Summary"}
         </button>
         <button
           onClick={() => toPDF()}
@@ -279,30 +267,27 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
           noteTitle={note.title}
         ></Summary>
       )}
-   
-      <div className={`note-content ${className}`}>
-        <div className="note-color">
-          <select
-            name=""
-            id=""
-            onChange={(e) => {
-              handleColorChange(e.target.value);
-            }}
-          >
-            <option value="White">White</option>
-            <option value="Sepia">Sepia</option>
-            <option value="Light Green">Light Green</option>
-          </select>
+      <div className="note-content" style={{ backgroundColor: noteAreaColor }}>
+        <div className="note-color-controls">
+          <label htmlFor="note-bg-color">Choose background color </label>
+          <div className="color-picker-wrapper">
+            
+            <input
+              type="color"
+              id="note-bg-color"
+              className="color-picker-swatch"
+              value={noteAreaColor}
+              onChange={(e) => setNoteAreaColor(e.target.value)}
+            />
+          </div>
         </div>
 
-       
         <div ref={targetRef} className="note-printable-area">
           <h3>Subject: {note.subject}</h3>
           <h4>Title: {note.title}</h4>
           <p dangerouslySetInnerHTML={{ __html: note.content }}></p>
         </div>
       </div>
- 
     </>
   );
 }

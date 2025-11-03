@@ -1307,3 +1307,39 @@ padding-bottom: 30px;
         display: none;
     }
 }
+.note-color-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.color-picker-wrapper {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgb(255, 158, 1);
+    border-radius: 4px;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-picker-swatch {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 150%; 
+    height: 150%; 
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: translate(-10%, -10%);
+}
+
+.color-picker-wrapper:focus-within {
+    outline: 2px solid var #007bff;
+    outline-offset: 2px;
+}
