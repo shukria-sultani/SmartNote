@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaDownload } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import Summary from "./Summary";
 import AddNote from "./AddNote";
@@ -10,6 +10,7 @@ import { MdSummarize } from "react-icons/md";
 import { FaQuestionCircle } from "react-icons/fa";
 import { Edit3 } from "lucide-react";
 import Quiz from "./Quiz";
+import { useTranslation } from "../hooks/useTranslationContext";
 
 export default function NoteReadMode() {
   const { value: notes, setValue: setNotes } = useLocalStorage("notesData");
@@ -198,16 +199,25 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
       handleSummary();
     }
   };
+  const {t, dir} = useTranslation()
 
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
-      <FaArrowLeft
+      {
+        dir === "ltr" ?   <FaArrowLeft
         className="arrow"
         onClick={() => {
           navigate(-1);
         }}
       ></FaArrowLeft>
+      : 
+        <FaArrowRight className="arrow"
+        onClick={() => {
+          navigate(-1);
+        }}></FaArrowRight>
+      }
+    
       {/* Action buttons */}
       <div className="action-buttons">
         <button
@@ -215,22 +225,22 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
             setModelOpen(true);
           }}
         >
-          <Edit3 style={{ width: "18px", height: "auto" }}></Edit3> Edit Note
+          <Edit3 style={{ width: "18px", height: "auto" }}></Edit3> {t("edit_note")}
         </button>
 
         <button onClick={handleTakeQuizClick} disabled={quizLoading}>
           <FaQuestionCircle></FaQuestionCircle>{" "}
-          {quizLoading ? " Loading Quiz..." : " Take Quiz"}
+          {quizLoading ? t("loading_quiz") : t("take_quiz") }
         </button>
         <button onClick={handleSummaryClick} disabled={summaryLoading}>
           <MdSummarize></MdSummarize>
-          {summaryLoading ? " Loading Summary..." : " AI Summary"}
+          {summaryLoading ? t("loading_summary") : t("ai_summary")}
         </button>
         <button
           onClick={() => toPDF()}
           title="Download Note as PDF Image (Not Selectable)"
         >
-          <FaDownload /> Download Note
+          <FaDownload /> {t('download_pdf')}
         </button>
       </div>
       {/* Modals (Edit, Quiz, Summary) */}
@@ -241,9 +251,9 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
             closeModel={() => {
               setModelOpen(false);
             }}
-            formTitle={"Edit the Note"}
+            formTitle={t("edit_note")}
             onSubmit={handleUpdate}
-            buttonText={"Update Note"}
+            buttonText={t("update_title")}
           ></AddNote>
         </div>
       )}
@@ -269,7 +279,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
       )}
       <div className="note-content" style={{ backgroundColor: noteAreaColor }}>
         <div className="note-color-controls">
-          <label htmlFor="note-bg-color">Choose background color </label>
+          <label htmlFor="note-bg-color">{t("bg_color")}</label>
           <div className="color-picker-wrapper">
             
             <input
@@ -283,9 +293,9 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
         </div>
 
         <div ref={targetRef} className="note-printable-area">
-          <h3>Subject: {note.subject}</h3>
-          <h4>Title: {note.title}</h4>
-          <p dangerouslySetInnerHTML={{ __html: note.content }}></p>
+          <h3>{t("note_subject")}: {note.subject}</h3>
+          <h4>{t("note_title")}: {note.title}</h4>
+          <p dangerouslySetInnerHTML={{ __html: note.content }} style={{marginTop:"20px"}}></p>
         </div>
       </div>
     </>

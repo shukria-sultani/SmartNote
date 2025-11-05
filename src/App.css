@@ -549,7 +549,7 @@ transition: opacity 1s ease-in-out, visibility 1s ease-in-out;   width: 100%;
   flex-direction: column;
   width: 95%;
   border: 1px solid rgb(255, 158, 1);
-  padding: 30px;
+  padding: 30px 50px;
   border-radius: 7px;
   gap: 10px;
   margin: 20px;
@@ -559,9 +559,9 @@ transition: opacity 1s ease-in-out, visibility 1s ease-in-out;   width: 100%;
   text-align: justify;
   line-height: 30px;
 }
-.note-content ol,
+.note-printable-area ol,
 ul {
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
 .note-color {

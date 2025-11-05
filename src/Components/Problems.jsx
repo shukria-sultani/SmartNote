@@ -2,32 +2,34 @@ import { HiMiniPuzzlePiece   } from 'react-icons/hi2';
 import { IoMdCopy } from 'react-icons/io';
 import { IoMdArchive } from 'react-icons/io';
 import { LuWarehouse } from 'react-icons/lu';
+import { useTranslation } from '../hooks/useTranslationContext';
 
 export default function Problems (){
+    const {t} = useTranslation()
     return(
         <>
         <div className="problems">
            
-           <h1>The Challenge: Where Great Ideas Get Lost</h1>
-           <p>Fragmented thoughts, endless searching, and mental clutter hold your back.</p>
+           <h1>{t("challenge_title")}</h1>
+    
 
         <div className='problem-cards'>
            <div>
                              <IoMdCopy></IoMdCopy>
 
-               <h3>Fragmented Notes</h3>
-               <p>Your ideas are scattered across physical pads, digital sticky notes, and emails. Momentum is killed switching between tools.</p>
+               <h3>{t("challenge_1_title")}</h3>
+               <p>{t("challenge_1_description")}</p>
            </div>
            <div>
                <IoMdArchive></IoMdArchive>
-              <h3>Search Anxiety</h3>
-              <p>Searching for information feels like digging through a landfill. You spend more time finding old ideas than creating new ones.</p>
+              <h3>{t("challenge_2_title")}</h3>
+              <p>{t("challenge_2_description")}</p>
            </div>
            <div>
                 <LuWarehouse></LuWarehouse>
 
-              <h3>No Organization</h3>
-              <p>Without proper structure, every new note adds to the mental clutter. Your system works against you, leading to idea fatigue.</p>
+               <h3>{t("challenge_3_title")}</h3>
+              <p>{t("challenge_3_description")}</p>
            </div>
         </div>
         

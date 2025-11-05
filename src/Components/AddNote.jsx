@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReactQuill from "react-quill-new";
 import { useEffect } from "react";
 import "react-quill-new/dist/quill.snow.css";
+import { useTranslation } from "../hooks/useTranslationContext";
 export default function AddNote({ onSubmit, initialNoteData = null, formTitle, closeModel, buttonText}) {
   const [noteData, setNoteData] = useState(
     initialNoteData || {
@@ -49,7 +50,7 @@ setNoteData({
                 document.body.classList.remove('no-scroll');
             };
         }, []);
-  
+  const {t} = useTranslation()
   return (
     <>
       <div className="noteForm-container">
@@ -66,7 +67,7 @@ setNoteData({
             handleSubmit();
           }}
         >
-          <label htmlFor="title">Enter the title:</label>
+          <label htmlFor="title">{t("note_title")}:</label>
           <input
             type="text"
             id="title"
@@ -75,7 +76,7 @@ setNoteData({
             value={noteData.title}
             onChange={handleChange}
           />
-          <label htmlFor="subject">Enter the subject:</label>
+          <label htmlFor="subject">{t("note_subject")}:</label>
           <input
             type="text"
             id="subject"
@@ -85,7 +86,7 @@ setNoteData({
             onChange={handleChange}
           />
          
-          <label htmlFor="content">Enter the note content:</label>
+          <label htmlFor="content">{t("note_content")}:</label>
           <ReactQuill
             theme="snow"
 

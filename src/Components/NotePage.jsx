@@ -9,6 +9,7 @@ import NoteCard from "./NoteCard"
 import DeleteModal from "./DeleteModal"
 import { FaPlus } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import { useTranslation } from "../hooks/useTranslationContext";
 export default function NotePage() {
   const [isModalOpen, setModelOpen] = useState(false);
   const [uniqueSubjects, setUniqueSubjects] = useState([]);
@@ -78,7 +79,7 @@ export default function NotePage() {
   };
 
 
-
+const {t} = useTranslation()
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
@@ -106,8 +107,8 @@ export default function NotePage() {
               setModelOpen(false);
             }}
             onSubmit={storeNotes}
-            buttonText={"Add Note"}
-           formTitle={"Add a New Note"}></AddNote>
+            buttonText={t("add_note")}
+           formTitle={t("add_title")}></AddNote>
         </div>
       )}
    {(Array.isArray(notes) && notes.length > 0) || uniqueSubjects.length > 0 ? (

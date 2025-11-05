@@ -3,35 +3,37 @@ import { FaBrain } from 'react-icons/fa';
 
 import { FaSearch } from 'react-icons/fa';
 import { FaTags } from 'react-icons/fa';
+import { useTranslation } from '../hooks/useTranslationContext';
 
 export default function Solutions(){
+    const {t} = useTranslation()
     return(
         <>
          <div className="solutions">
-            <h1>The SmartNote Solutions: Clarity and Intelligence</h1>
+            <h1>{t("solution_title")}</h1>
          </div>
            
 
            <div className="solution-card">
             <div>
                 <FaMagic></FaMagic>
-                <h3>AI-Powered Summary</h3>
-                <p>Solves Information Overload. Instantly distill long notes, articles, or meeting transcripts into concise, key takeaways.</p>
+                <h3>{t("solution_1_title")}</h3>
+                <p>{t("solution_1_description")}</p>
             </div>
             <div>
             <FaBrain></FaBrain>
-                <h3>Auto-Quiz Generation</h3>
-                <p>Solves Passive Learning. Turn any note into a customized study quiz to actively test your knowledge and maximize retention.</p>
+                  <h3>{t("solution_2_title")}</h3>
+                <p>{t("solution_2_description")}</p>
             </div>
             <div>
                 <FaSearch className='search'></FaSearch>
-                <h3> Instant Global Search</h3>
-                <p>Solves Search Anxiety. Finds keywords, titles, and content across every note in milliseconds. Searching is now instant recall.</p>
+                 <h3>{t("solution_3_title")}</h3>
+                <p>{t("solution_3_description")}</p>
             </div>
             <div>
                 <FaTags></FaTags>
-                <h3>Smart Subject Filtering</h3>
-                <p>Solves Fragmentation. Quickly assign subjects with one tap and use the filter bar to isolate projects, topics, or categories instantly.</p>
+                <h3>{t("solution_4_title")}</h3>
+                <p>{t("solution_4_description")}</p>
             </div>
            </div>
         

@@ -17,6 +17,7 @@ import { useState } from "react";
 
 import emailjs from "@emailjs/browser"
 import toast, { Toaster } from "react-hot-toast";
+import { useTranslation } from "../hooks/useTranslationContext";
 export default function About() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -48,7 +49,7 @@ const handleSubmit = async(e)=>{
 
 
 }
-
+ const {t} = useTranslation()
 
   return (
     <>
@@ -59,17 +60,11 @@ const handleSubmit = async(e)=>{
           <h2>
             {" "}
             <FaLightbulb style={{ fontSize: "2.3rem" }}></FaLightbulb>
-            About SmartNote: My Vision for Smarter Thinking
+            {t("about_smart")}
           </h2>
 
           <p>
-            At SmartNote, we believe your ideas are your most valuable asset.
-            Our vision is to move note-taking beyond simple recording and toward
-            intelligent knowledge activation. We aim to eliminate the chaos of
-            passive information consumption and provide a single, private space
-            where your notes don't just sit—they work for you. SmartNote is
-            built to transform every thought, lecture, and meeting into an
-            active opportunity for learning, recall, and mastery.
+            {t("about_description")}
           </p>
         </div>
 
@@ -83,20 +78,20 @@ const handleSubmit = async(e)=>{
                 height: "auto",
               }}
             ></StarIcon>
-            My Philosopy: Clarity, Control, and Continous Learning
+            {t("philosophy")}
           </h2>
           <div>
             <div>
               <GoalIcon className="goalIcon"></GoalIcon>
-              <h3>Calrity Through Simplicity</h3>
+              <h3>{t("philosophy_1")}</h3>
             </div>
             <div>
               <FaShield></FaShield>
-              <h3>Control Over Your Data</h3>
+              <h3>{t("philosophy_2")}</h3>
             </div>
             <div>
               <FaBrain></FaBrain>
-              <h3>Continous Learning</h3>
+              <h3>{t("philosophy_3")}</h3>
             </div>
           </div>
         </div>
@@ -110,19 +105,12 @@ const handleSubmit = async(e)=>{
                 height: "auto",
               }}
             ></Code>{" "}
-            Meet the Developer
+           {t("developer")}
           </h2>
           <div>
             <QuoteIcon></QuoteIcon>
             <p>
-              Hi, I'm <strong>Shukria Sultani</strong>, a Frontend Developer
-              based in Afghanistan. Throughout my journey as a student and
-              developer, I constantly dealt with complex lecture notes and
-              documentations, and realized that existing note apps only tracked
-              ideas—they didn't manage them. Driven by the need for a smarter
-              system, I built SmartNote. It combines my background in UX design
-              and frontend development with powerful AI to transform how you
-              interact with your own thoughts.
+              {t("developer_info")}
             </p>
             <QuoteIcon></QuoteIcon>
           </div>
@@ -137,13 +125,12 @@ const handleSubmit = async(e)=>{
                 height: "auto",
               }}
             ></FcCollaboration>{" "}
-            Contribute to SmartNote: Join the Mission
+            {t("contribute")}
           </h2>
           <div className="contribution-options">
-            <h4>How You Can Help</h4>
+            <h4>{t("how")}</h4>
             <p>
-              I believe in open development. Every contribution, big or small,
-              helps turn SmartNote into the best tool it can be.
+             {t("contrib_description")}
             </p>
             <div>
               <div>
@@ -154,9 +141,7 @@ const handleSubmit = async(e)=>{
                     height: "auto",
                   }}
                 ></Code>{" "}
-                <strong>Code Contributions:</strong> Help me refine features,
-                improve performance, and build out the next generation of smart
-                tools
+               {t("code")}
               </div>
               <div>
                 <Paintbrush2
@@ -166,16 +151,14 @@ const handleSubmit = async(e)=>{
                     height: "auto",
                   }}
                 ></Paintbrush2>
-                <strong> Design & UX:</strong> Help me perfect the user
-                experience and visual design, ensuring SmartNote remains clean
-                and intuitive.
+               {t("design")}
               </div>
             </div>
             <a
               href="https://github.com/shukria-sultani/SmartNote"
               target="_blank"
             >
-              GitHub Repository
+              {t("github_repo")}
             </a>
           </div>
         </div>
@@ -183,7 +166,7 @@ const handleSubmit = async(e)=>{
         <div className="contact-form">
           <img src={contactImg} alt="" />
           <form action="" onSubmit={handleSubmit}>
-            <h2>Contact Me</h2>
+            <h2>{t("contact_me")}</h2>
             <div>
               <label htmlFor="name">
                 <FaUser></FaUser>
@@ -193,7 +176,7 @@ const handleSubmit = async(e)=>{
                 id="name"
                 value={name}
                 name="name"
-                placeholder="Shukria"
+                placeholder={t("contact_name")}
                 onChange={(e) => {
                   setName(e.target.value)
                 }}
@@ -209,7 +192,7 @@ const handleSubmit = async(e)=>{
                 id="email"
                 name="email"
                 value={email}
-                placeholder="shukria@gmail.com"
+                placeholder={t("email")}
                 onChange={(e) => {
                   setEmail(e.target.value)
                 }}
@@ -224,14 +207,14 @@ const handleSubmit = async(e)=>{
                 name="message"
                 id="message"
                 value={message}
-                placeholder="Message..."
+                placeholder={t("message")}
                 onChange={(e) => {
                   setMessage(e.target.value)
                 }}
                 required
               ></textarea>
             </div>
-            <button>Send Message</button>
+            <button>{t("send_message")}</button>
           </form>
         </div>
 

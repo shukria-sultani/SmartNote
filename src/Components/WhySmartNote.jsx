@@ -1,15 +1,18 @@
 import whyImage from "../assets/images/why.png"
+import { useTranslation } from "../hooks/useTranslationContext"
 import Problems from "./Problems"
 import Solutions from "./Solutions"
 export default function WhySmartNote(){
+    const {t} = useTranslation()
     return(
+
 
         <>
           <div className="why-smartNote">
-            <h1>Why SmartNote?</h1>
+            <h1>{t("why_smartNote")}</h1>
             <div>
-            <h2>Clarity From Chaos</h2>
-            <h4>SmartNote transforms fragmented thoughts into organized knowledge.</h4>
+            <h2>{t("clarity")}</h2>
+            <h4>{t("org_knowledge")}</h4>
             </div>
              <img src={whyImage} alt="" />
           </div>
