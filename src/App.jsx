@@ -8,11 +8,12 @@ import NoteReadMode from "./Components/NoteReadMode.jsx"
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import About from './Components/About.jsx'
-
+import {TranslationProvider} from "./hooks/useTranslationContext.jsx"
 function App() {
   return (
+    <TranslationProvider>
    <div>
-   
+
     <Router>
         <Routes>
           <Route path='/' element={<HomePage></HomePage>} />
@@ -25,6 +26,7 @@ function App() {
     </Router>
 
    </div>
+      </TranslationProvider>
   )
 }
 
