@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { IoMdClose } from "react-icons/io"
 import { FaDownload } from 'react-icons/fa';
 import { usePDF } from 'react-to-pdf';
+import { useTranslation } from '../hooks/useTranslationContext';
 export default function Summary ({noteTitle, closeSummary, summary}){
       // Handle main vertical scroll
   useEffect(() => {
@@ -17,14 +18,15 @@ export default function Summary ({noteTitle, closeSummary, summary}){
     resolution: 5, 
     page: { margin: 25.4 }, 
     })
+    const {t}  = useTranslation()
       return (
         <>
         <div className="summary-container">
          <div className="note-summary">
             <IoMdClose className="closeIcon" onClick={closeSummary}></IoMdClose>
-            <button onClick={()=> toPDF()}><FaDownload></FaDownload> Download PDF</button>
+            <button onClick={()=> toPDF()}><FaDownload></FaDownload> {t("download_pdf")}</button>
             <div ref={targetRef}>
-             <h2>Summary for: {noteTitle}</h2>
+             <h2>{t("summary_for")} {noteTitle}</h2>
                <ReactMarkdown>{summary}</ReactMarkdown>
               </div>
          </div>

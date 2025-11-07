@@ -77,7 +77,7 @@ export default function NoteReadMode() {
 1. A "question" string.
 2. A "options" object where keys are "a", "b", "c", "d" and values are option strings.
 3. A "correctAnswer" string containing only the key of the correct option (e.g., "b").
-Return ONLY the raw JSON array. DO NOT include any introductory or explanatory text.`;
+Return ONLY the raw JSON array. DO NOT include any introductory or explanatory text and consider the topic's language.`;
 
     try {
       const response = await fetch(
@@ -153,7 +153,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
     } catch (error) {
       console.log("Failed to get data from catch", error);
     }
-    const summaryPrompt = `Give an accurate, concise, well organized summary based on this content: ${note.content}`;
+    const summaryPrompt = `Give an accurate, concise, well organized summary based on this content: ${note.content} and based on the content's language`;
     try {
       const response = await fetch(
         "https://api.openai.com/v1/chat/completions",
@@ -200,6 +200,10 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
     }
   };
   const {t, dir} = useTranslation()
+
+
+
+
 
   return (
     <>

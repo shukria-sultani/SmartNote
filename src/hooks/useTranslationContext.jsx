@@ -56,6 +56,7 @@ const translations = {
     loading_quiz: "Loading Quiz...",
     ai_summary: "AI Summmary",
     loading_summary: "Loading summary...",
+    summary_for : "Summary for:",
     download_pdf: "Download PDF",
     bg_color: "Choose background color",
     about_smart: "About SmartNote: My Vision for Smarter Thinking",
@@ -137,6 +138,7 @@ const translations = {
     loading_quiz: "بارگذاری امتحان...",
     ai_summary: "خلاصه هوش مصنوعی",
     loading_summary: "بارگذاری خلاصه",
+    summary_for: "خلاصه:",
     download_pdf: "دانلود پی دی اف",
     bg_color: "انتخاب رنگ پس زمینه",
     about_smart: "درباره اسمارت نوت: چشم‌انداز من برای تفکر هوشمندتر",
@@ -168,8 +170,11 @@ const translations = {
 const TranslationContext = createContext();
 // Context provider
 export const TranslationProvider = ({ children }) => {
-  const [language, setLanguage] = useState("en");
-
+  const [language, setLanguage] = useState(()=>{
+      const savedLang = sessionStorage.getItem("currentLang")
+      return savedLang && translations[savedLang] ? savedLang : "en"
+  })
+  
   const t = (key) => {
     return translations[language][key] || key;
   };
@@ -178,8 +183,9 @@ export const TranslationProvider = ({ children }) => {
 
   // Use useEffect to set the global HTML direction attribute when the language changes
   useEffect(() => {
+     sessionStorage.setItem("currentLang", language)
     document.documentElement.setAttribute("dir", dir);
-  }, [dir]);
+  }, [dir, language]);
 
   const contextValue = {
     language,
