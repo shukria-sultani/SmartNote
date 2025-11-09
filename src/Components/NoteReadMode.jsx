@@ -202,7 +202,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
     }
   };
 
-  const {t} = useTranslation()
+  const {t, dir} = useTranslation()
 // Handle direction based on language
 
 useEffect(()=>{
