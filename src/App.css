@@ -109,7 +109,7 @@ header h1 {
   padding-top: 20px;
   gap: 40px;
     height: 100vh;
-    background-image: url(./assets/images/bg.png);
+    background-image: url(./assets/images/bg.jpeg);
     background-size: cover;
     overflow: hidden;
 }

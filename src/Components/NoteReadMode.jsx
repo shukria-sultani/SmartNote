@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import Summary from "./Summary";
