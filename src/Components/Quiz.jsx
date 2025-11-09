@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 
-export default function Quiz({closeQuiz, questions}) {
+export default function Quiz({closeQuiz, questions, contentDirection}) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [chosenAnswer, setChosenAnswer] = useState(null);
     const [answerRevealed, setAnswerRevealed] = useState(false);
@@ -106,7 +106,7 @@ export default function Quiz({closeQuiz, questions}) {
         <div className="quiz-container">
             <div className="question">
                 <IoMdClose className="closeIcon" onClick={closeQuiz} />
-                
+                <div style={{direction: contentDirection}}>
                 <h3>
                     {currentQuestion.question} 
                     <span style={{ display: 'block', fontSize: '0.8em', fontWeight: 'normal', color: '#666', marginTop: '5px' }}>
@@ -128,7 +128,7 @@ export default function Quiz({closeQuiz, questions}) {
                         </li>
                     ))}
                 </ul>
-
+</div>
                 <div className="quiz-navigation-buttons">
                     <button 
                         onClick={handlePrev} 

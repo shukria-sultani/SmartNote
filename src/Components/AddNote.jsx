@@ -10,6 +10,7 @@ export default function AddNote({ onSubmit, initialNoteData = null, formTitle, c
     initialNoteData || {
     title: "",
     subject: "",
+    language: "en",
     content: "",
   });
   const handleChange = (e) => {
@@ -38,6 +39,7 @@ export default function AddNote({ onSubmit, initialNoteData = null, formTitle, c
 setNoteData({
       title: "",
       subject: "",
+        language: "en",
       content: "",
     });
    } 
@@ -85,6 +87,11 @@ setNoteData({
             value={noteData.subject}
             onChange={handleChange}
           />
+          <label htmlFor="language">Choose the note language: </label>
+          <select name="" id="language" value={noteData.language} onChange={handleChange}> 
+            <option value="en">English</option>
+            <option value="fa">Persian</option>
+          </select>
          
           <label htmlFor="content">{t("note_content")}:</label>
           <ReactQuill

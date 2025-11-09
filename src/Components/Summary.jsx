@@ -4,7 +4,7 @@ import { IoMdClose } from "react-icons/io"
 import { FaDownload } from 'react-icons/fa';
 import { usePDF } from 'react-to-pdf';
 import { useTranslation } from '../hooks/useTranslationContext';
-export default function Summary ({noteTitle, closeSummary, summary}){
+export default function Summary ({noteTitle, closeSummary, summary, contentDirection}){
       // Handle main vertical scroll
   useEffect(() => {
         document.body.classList.add('no-scroll');
@@ -25,7 +25,7 @@ export default function Summary ({noteTitle, closeSummary, summary}){
          <div className="note-summary">
             <IoMdClose className="closeIcon" onClick={closeSummary}></IoMdClose>
             <button onClick={()=> toPDF()}><FaDownload></FaDownload> {t("download_pdf")}</button>
-            <div ref={targetRef}>
+            <div ref={targetRef} style={{direction: contentDirection}}>
              <h2>{t("summary_for")} {noteTitle}</h2>
                <ReactMarkdown>{summary}</ReactMarkdown>
               </div>

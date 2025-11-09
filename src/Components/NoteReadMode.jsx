@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import Summary from "./Summary";
@@ -33,6 +33,8 @@ export default function NoteReadMode() {
 
   const [noteSummary, setNoteSummary] = useState(null);
   const [summaryLoading, setSummaryLoading] = useState(false); // Handle Note Not Found
+
+  const [direction, setDirection ]  = useState("lrt")
 
   if (!note) {
     return (
@@ -199,9 +201,14 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
       handleSummary();
     }
   };
+
   const {t, dir} = useTranslation()
 
+// Handle direction based on language
 
+useEffect(()=>{
+  note.language === "fa" ? setDirection("rtl") : setDirection("lrt")
+},[])
 
 
 
@@ -268,6 +275,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
             closeQuiz={() => {
               setOpenQuiz(false);
             }}
+            contentDirection={direction}
           />
         </div>
       )}
@@ -279,6 +287,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
           }}
           summary={noteSummary}
           noteTitle={note.title}
+          contentDirection={direction}
         ></Summary>
       )}
       <div className="note-content" style={{ backgroundColor: noteAreaColor }}>
@@ -296,7 +305,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
           </div>
         </div>
 
-        <div ref={targetRef} className="note-printable-area">
+        <div ref={targetRef} className="note-printable-area" style={{direction : direction}}>
           <h3>{t("note_subject")}: {note.subject}</h3>
           <h4>{t("note_title")}: {note.title}</h4>
           <p dangerouslySetInnerHTML={{ __html: note.content }} style={{marginTop:"20px"}}></p>

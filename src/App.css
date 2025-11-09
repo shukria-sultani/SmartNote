@@ -342,7 +342,7 @@ footer {
   gap: 10px;
   width: 80%;
 }
-
+.noteFom-modal 
 .noteForm-container form label {
   align-self: flex-start;
   font-size: 1em;
@@ -367,7 +367,10 @@ footer {
   resize: none;
   overflow-y: auto;
 }
+.noteForm-container form select{
 
+  padding: 15px 10px;
+}
 .noteForm-container form input:focus,
 .noteForm-container form textarea:focus {
   outline: none;
