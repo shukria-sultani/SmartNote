@@ -26,7 +26,7 @@ export default function Summary ({noteTitle, closeSummary, summary, contentDirec
             <IoMdClose className="closeIcon" onClick={closeSummary}></IoMdClose>
             <button onClick={()=> toPDF()}><FaDownload></FaDownload> {t("download_pdf")}</button>
             <div ref={targetRef} style={{direction: contentDirection}}>
-             <h2>{t("summary_for")} {noteTitle}</h2>
+             <h3>{t("summary_for")} {noteTitle}</h3>
                <ReactMarkdown>{summary}</ReactMarkdown>
               </div>
          </div>

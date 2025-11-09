@@ -660,7 +660,7 @@ button:hover {
 .question {
   background-color: #fff;
   width: min(90%, 500px);
-  padding: 30px;
+  padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -821,12 +821,13 @@ button:hover {
   overflow-wrap: break-word;
   background-color: #fff;
   border-radius: 20px;
-  padding: 30px;
+  padding: 70px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1001;
   gap: 20px;
 }
+
 .note-summary button{
   max-width: 300px;
   margin: 20px;
@@ -838,11 +839,6 @@ button:hover {
     font-size: 1.8rem;
     cursor: pointer;
     color: #333;
-}
-
-.note-summary h2 {
-    padding-right: 30px;
-    margin-top: 0;
 }
 
 .note-summary p {

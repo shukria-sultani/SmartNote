@@ -84,7 +84,11 @@ const translations = {
     send_message: "Send Message",
     delete_confirmation : "Are you sure that you want to delete this note?",
     yes: "Yes",
-    cancel: "Cancel"
+    cancel: "Cancel",
+    quiz_completeed: "Quiz Completed! 🎉",
+    score: "You scored",
+    out_of: "out of",
+     try_again: "Try Again"
   },
   fa: {
     app_title: "اسمارت نوت",
@@ -169,7 +173,11 @@ const translations = {
     send_message: "ارسال پیام",
     delete_confirmation: "آیا مطمئن هستیدکه این یادداشت حذف شود؟",
     yes: "بلی",
-    cancel: "نخیر"
+    cancel: "نخیر",
+    quiz_completeed : "امتحان تکمیل شد! 🎉",
+    score: "شما نمره گرفتید  ",
+    out_of: "از",
+    try_again: "تلاش دوباره"
   },
 };
 

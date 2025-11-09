@@ -34,7 +34,7 @@ export default function NoteReadMode() {
   const [noteSummary, setNoteSummary] = useState(null);
   const [summaryLoading, setSummaryLoading] = useState(false); // Handle Note Not Found
 
-  const [direction, setDirection ]  = useState("lrt")
+  const [direction, setDirection ]  = useState("ltr")
 
   if (!note) {
     return (
@@ -206,7 +206,7 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
 // Handle direction based on language
 
 useEffect(()=>{
-  note.language === "fa" ? setDirection("rtl") : setDirection("lrt")
+  note.language === "fa" ? setDirection("rtl") : setDirection("ltr")
 },[note.language])
 
 

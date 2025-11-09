@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
+import { useTranslation } from "../hooks/useTranslationContext";
 
 export default function Quiz({closeQuiz, questions, contentDirection}) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +13,7 @@ export default function Quiz({closeQuiz, questions, contentDirection}) {
     const isLastQuestion = currentIndex === questions.length - 1;
     const isQuizFinished = currentIndex === questions.length - 1 && answerRevealed; 
 
-
+   const {t} = useTranslation()
     const handleNext = () => {
         if (currentIndex < questions.length - 1) {
             setCurrentIndex(currentIndex + 1);
@@ -91,11 +92,11 @@ export default function Quiz({closeQuiz, questions, contentDirection}) {
             <div className="quiz-container">
                 <div className="quiz-result-container">
                     <IoMdClose className="closeIcon" onClick={closeQuiz} />
-                    <h2>Quiz Complete! 🎉</h2>
+                    <h2>{t("quiz_completeed")}</h2>
                     <p className="score-text">
-                        You scored {score} out of {questions.length}
+                        {t("score")} {score} {t("out_of")} {questions.length}
                     </p>
-                    <button className="try-again-button" onClick={handleTryAgain}>Try Again</button>
+                    <button className="try-again-button" onClick={handleTryAgain}>{t("try_again")}</button>
                 </div>
             </div>
         );
