@@ -202,13 +202,12 @@ Return ONLY the raw JSON array. DO NOT include any introductory or explanatory t
     }
   };
 
-  const {t, dir} = useTranslation()
-
+  const {t} = useTranslation()
 // Handle direction based on language
 
 useEffect(()=>{
   note.language === "fa" ? setDirection("rtl") : setDirection("lrt")
-},[])
+},[note.language])
 
 
 

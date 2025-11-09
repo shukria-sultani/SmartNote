@@ -5,7 +5,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { TranslationProvider } from "./hooks/useTranslationContext.jsx";
 import { lazy, Suspense } from "react";
-// import HomePage from "./Components/HomePage.jsx"
+import Loader from "./Components/Loader.jsx";
 const HomePage = lazy(() => import("./Components/HomePage.jsx"));
 const NotePage = lazy(() => import("./Components/NotePage.jsx"));
 const NotFound = lazy(() => import("./Components/NotFound.jsx"));
@@ -17,7 +17,7 @@ function App() {
     <TranslationProvider>
       <div>
         <Router>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="*" element={<NotFound />} />
