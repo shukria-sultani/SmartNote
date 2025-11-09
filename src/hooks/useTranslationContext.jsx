@@ -82,6 +82,9 @@ const translations = {
     email: "shukria@gmail.com",
     message: "Message...",
     send_message: "Send Message",
+    delete_confirmation : "Are you sure that you want to delete this note?",
+    yes: "Yes",
+    cancel: "Cancel"
   },
   fa: {
     app_title: "اسمارت نوت",
@@ -164,6 +167,9 @@ const translations = {
     email: "shukria@gmail.com",
     message: "پیام...",
     send_message: "ارسال پیام",
+    delete_confirmation: "آیا مطمئن هستیدکه این یادداشت حذف شود؟",
+    yes: "بلی",
+    cancel: "نخیر"
   },
 };
 
