@@ -24,7 +24,6 @@ export default function NotePage() {
       const notesArray = Array.isArray(prevNotes) ? prevNotes : [];
       return [newNote, ...notesArray];
     });
-
      setModelOpen(false)
           toast.success("Note successfully Added!", {
         duration: 3000,

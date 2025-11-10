@@ -18,6 +18,7 @@ export default function NoteCard({note, onDelete}) {
                 
                 </div>
             <div className="note-card">
+              <small>{t("last_modified")}: {note.date}</small>
               <h4>{t("subject")}: {note.subject}</h4>
               <h4>{t("title")}: {note.title}</h4>
               <p dangerouslySetInnerHTML={{ __html: note.content}}></p>

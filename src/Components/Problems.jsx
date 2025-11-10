@@ -1,7 +1,7 @@
 import { HiMiniPuzzlePiece   } from 'react-icons/hi2';
 import { IoMdCopy } from 'react-icons/io';
-import { IoMdArchive } from 'react-icons/io';
-import { LuWarehouse } from 'react-icons/lu';
+import { Search } from 'lucide-react';
+import { FiShuffle } from 'react-icons/fi';
 import { useTranslation } from '../hooks/useTranslationContext';
 
 export default function Problems (){
@@ -21,13 +21,12 @@ export default function Problems (){
                <p>{t("challenge_1_description")}</p>
            </div>
            <div>
-               <IoMdArchive></IoMdArchive>
+              <Search style={{width: "40px", height: "40px"}}></Search>
               <h3>{t("challenge_2_title")}</h3>
               <p>{t("challenge_2_description")}</p>
            </div>
            <div>
-                <LuWarehouse></LuWarehouse>
-
+            <FiShuffle></FiShuffle>
                <h3>{t("challenge_3_title")}</h3>
               <p>{t("challenge_3_description")}</p>
            </div>

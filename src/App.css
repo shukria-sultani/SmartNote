@@ -1363,3 +1363,7 @@ padding-bottom: 30px;
     transform: rotate(-360deg);
   }
 } 
+small{
+  color: rgb(255, 158, 1);
+  font-weight: bolder;
+}

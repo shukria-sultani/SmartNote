@@ -28,10 +28,21 @@ export default function AddNote({ onSubmit, initialNoteData = null, formTitle, c
         content: contentValue
      }))
   }
+
+const options = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    hour: 'numeric',      
+    minute: 'numeric',    
+    hour12: true          
+  };
   const handleSubmit = () => {
+    const date = new Date()
     const newNote = {
       id: initialNoteData ? initialNoteData.id : Date.now(),
       ...noteData,
+      date: date.toLocaleString("en-US", options)
     };
     onSubmit(newNote);
     
@@ -89,8 +100,8 @@ setNoteData({
           />
           <label htmlFor="language">Choose the note language: </label>
           <select name="" id="language" value={noteData.language} onChange={handleChange}> 
-            <option value="en">English</option>
-            <option value="fa">Persian</option>
+            <option value="en">{t("en")}</option>
+            <option value="fa">{t("fa")}</option>
           </select>
          
           <label htmlFor="content">{t("note_content")}:</label>

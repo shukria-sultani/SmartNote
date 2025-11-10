@@ -7,6 +7,8 @@ const translations = {
     nav_link_notes: "Notes",
     nav_link_about: "About",
     current_lang: "English",
+    en: "English",
+    fa: "Persian",
     text_direction: "ltr",
     hero_h1: "Connect Your Thoughts.",
     hero_h1_nextLine: " Fuel Your Progress!",
@@ -90,7 +92,13 @@ const translations = {
     quiz_completeed: "Quiz Completed! 🎉",
     score: "You scored",
     out_of: "out of",
-     try_again: "Try Again"
+     try_again: "Try Again",
+     last_modified: "Last modified",
+     no_note: "No Notes Here Yet!",
+     capture_thougths: "Time to capture your thoughts.",
+    not_found: "Page Not Found!",
+    get_back_home: "Get Back to Home"
+     
   },
   fa: {
     app_title: "اسمارت نوت",
@@ -98,6 +106,8 @@ const translations = {
     nav_link_notes: " یادداشت ها",
     nav_link_about: "در باره ",
     current_lang: "  فارسی ",
+    en:"انگلیسی",
+    fa: "فارسی",
     text_direction: "rtl",
     hero_h1: "افکار تان را  مرتبط کنید.",
     hero_h1_nextLine: "پیشرفت خود را سرعت دهید!",
@@ -181,7 +191,12 @@ const translations = {
     out_of: "از",
     try_again: "تلاش دوباره",
     subject: "مضمون یادداشت",
-    title: "عنوان یادداشت"
+    title: "عنوان یادداشت",
+    last_modified: "آخرین ویرایش",
+    no_note: "یادداشت موجودنمی باشد!",
+    capture_thougths: "وقت آن هست که افکارت را ثبت.",
+    not_found: "صفحه پیدا نشد!",
+    get_back_home: "برگشت به صفحه اصلی"
   },
 };
 
