@@ -48,6 +48,8 @@ const translations = {
     edit_note: "Edit Note",
     delete: "Delete",
     note_title: "Enter the title",
+    subject: "Note Subject",
+    title: "Note Title",
     note_subject: "Enter the subject",
     note_content: "Enter the content",
     add_title: "Add a new Note",
@@ -177,7 +179,9 @@ const translations = {
     quiz_completeed : "امتحان تکمیل شد! 🎉",
     score: "شما نمره گرفتید  ",
     out_of: "از",
-    try_again: "تلاش دوباره"
+    try_again: "تلاش دوباره",
+    subject: "مضمون یادداشت",
+    title: "عنوان یادداشت"
   },
 };
 

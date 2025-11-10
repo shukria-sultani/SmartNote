@@ -305,8 +305,8 @@ useEffect(()=>{
         </div>
 
         <div ref={targetRef} className="note-printable-area" style={{direction : direction}}>
-          <h3>{t("note_subject")}: {note.subject}</h3>
-          <h4>{t("note_title")}: {note.title}</h4>
+          <h3>{t("subject")}: {note.subject}</h3>
+          <h4>{t("title")}: {note.title}</h4>
           <p dangerouslySetInnerHTML={{ __html: note.content }} style={{marginTop:"20px"}}></p>
         </div>
       </div>
