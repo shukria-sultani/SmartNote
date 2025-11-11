@@ -39,13 +39,14 @@ npm run dev
 The application will run in development mode (usually accessible at http://localhost:5173).
 
 Home Page
-<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/08824ce7-49a5-4022-af45-ea0eb86d92ee" />
-
-Notes Page
 <img width="1920" height="4522" alt="image" src="https://github.com/user-attachments/assets/16e57998-cc85-47d7-88fd-a6c97a1ea197" />
 
+Notes Page
+<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/08824ce7-49a5-4022-af45-ea0eb86d92ee" />
+
 About Page
-<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/679c8e71-7c7c-4957-90da-38e9d189b48d" />
+<img width="1920" height="3817" alt="image" src="https://github.com/user-attachments/assets/e7008b8e-dbd8-42b1-8ad2-c4a9b2a9e29c" />
+
 
 Add Note Form
 <img width="1920" height="889" alt="image" src="https://github.com/user-attachments/assets/833e3527-e423-4628-b432-9f8168dfbe81" />
