@@ -8,8 +8,14 @@ export const createNewUser = async (req, res) => {
             userData: newUser
         });
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        const statusCode = error.status || 500
+        res.status(statusCode).json(
+            { 
+             success: false,
+             statusCode,
+             message: error.message
+            }
+            )
     }
 }
-
 
