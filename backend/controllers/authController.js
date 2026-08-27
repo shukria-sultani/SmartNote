@@ -1,7 +1,8 @@
-import {createUser} from "../services/authServices.js"
+import { createUser, loginUser } from "../services/authServices.js"
+
 export const createNewUser = async (req, res) => {
     try {
-        const {name, lastName, email, password } = req.body;
+        const { name, lastName, email, password } = req.body;
         const newUser = await createUser({ name, lastName, email, password })
         res.status(201).json({
             success: true,
@@ -10,12 +11,34 @@ export const createNewUser = async (req, res) => {
     } catch (error) {
         const statusCode = error.status || 500
         res.status(statusCode).json(
-            { 
-             success: false,
-             statusCode,
-             message: error.message
+            {
+                success: false,
+                statusCode,
+                message: error.message
             }
-            )
+        )
     }
 }
 
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        console.log("credentials", email, password)
+        const user = await loginUser({email, password});
+        res.status(201).json(
+            {
+                success: true,
+                userData: user
+            }
+        )
+    } catch (error) {
+        const statusCode = error.status || 500
+        res.status(statusCode).json(
+            {
+                success: false,
+                statusCode,
+                message: error.message
+            }
+        )
+    }
+}
