@@ -32,15 +32,23 @@ export const createUser = async(userData)=> {
 
 export const loginUser = async(credentials)=>{
   const {email, password} = credentials;
-  console.log(credentials)
   if(!email || !password){
      throw new AppError(400, "Email and Password are required!")
   }
-  const user = await Users.findOne({where: {email}})
+  const user = await Users.findOne(
+    {
+      where: {email},
+      attributes:{
+        include: ["password"]
+      } 
+    
+    }
+  )
   if(!user){
     throw new AppError(404, "User not found!")
   }
-  if(!bcrypt.compare(password, user.password)){
+  const doesPasswordMatch = await bcrypt.compare(password, user.password)
+  if(!doesPasswordMatch){
     throw new AppError(400, "Invalid password!")
   }
   const accessToken = generateAccessToken(user.id, user.email);
