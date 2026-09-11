@@ -45,5 +45,9 @@ const Users = sequelize.define(
         },
     }
 );
+Users.associate = (models) => {
+    Users.hasMany(models.RefreshTokens, { foreignKey: "userId" })
+}
+
 
 export default Users;
