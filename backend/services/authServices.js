@@ -3,7 +3,8 @@ import { where } from "sequelize";
 import bcrypt from "bcrypt";
 import Users from "../models/users.js";
 import AppError from "../utils/errorHandler.js";
-import { generateAccessToken } from "../utils/jwt/generateAccessToken.js";
+import generateTokens from "../utils/jwt/generateTokens.js";
+import RefreshTokens from "../models/refreshTokens.js";
 export const createUser = async(userData)=> {
    const {name, lastName, email, password} = userData;
    
@@ -31,7 +32,7 @@ export const createUser = async(userData)=> {
 }
 
 export const loginUser = async(credentials)=>{
-  const {email, password} = credentials;
+  const {email, password, deviceInfo} = credentials;
   if(!email || !password){
      throw new AppError(400, "Email and Password are required!")
   }
@@ -51,12 +52,25 @@ export const loginUser = async(credentials)=>{
   if(!doesPasswordMatch){
     throw new AppError(400, "Invalid password!")
   }
-  const accessToken = generateAccessToken(user.id, user.email);
+  const tokenPaylod = {id: user.id, email: user.email}
+
+  const {accessToken, refreshToken} = generateTokens(tokenPaylod);
+    await RefreshTokens.create(
+    {
+      userId: user.id,
+      token: await bcrypt.hash(refreshToken, 10),
+      expiresAt: Date.now() + 7*24*60*60*1000,
+      revokedAt: null,
+      deviceInfo
+      
+    }
+  )
   return {
     id:user.id,
     email: user.email,
     name: user.name,
-    token: accessToken
+    accessToken,
+    refreshToken,
   }
 
 }
