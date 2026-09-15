@@ -74,3 +74,37 @@ export const loginUser = async(credentials)=>{
   }
 
 }
+
+export const rotateRefreshToken =  async(token) =>{
+   const hashedToken = await bcrypt.hash(token, 10);
+   const storedToken = await RefreshTokens.findOne(
+   { where:{
+      token: hashedToken
+    }}
+   );
+   if(!storedToken){
+    throw new AppError(401, "Refresh not found!")
+   }
+   if(!storedToken.expiresAt > Date.now() || storedToken.revokedAt !== null){
+    throw new AppError(401, "Refresh token is expired or is invalid!")
+   }
+    const userId = storedToken.userId
+    const user = Users.findOne(
+      {
+        where:{
+          id: userId
+        }
+      }
+    )
+    if(!user){
+      throw new Error(404, "User not found!")
+    }
+    const credentials = {id: userId, email: user.email}
+   const {accessToken, refreshToken} = generateTokens(credentials);
+   
+   return {
+    accessToken,
+    refreshToken
+   }
+
+}
