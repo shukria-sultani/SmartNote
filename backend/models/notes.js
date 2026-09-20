@@ -10,11 +10,11 @@ const Notes = sequelize.define("Notes",
 
         },
         userId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         title: {
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false
         },
         subject:{
@@ -22,12 +22,13 @@ const Notes = sequelize.define("Notes",
             allowNull: false
         },
         note_text: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         isDeleted: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue:false
         }
     },
     
@@ -37,7 +38,7 @@ const Notes = sequelize.define("Notes",
     })
 
  
-Notes.asscoiate = (models)=>{
+Notes.associate = (models)=>{
   Notes.belongsTo(models.Users, {foreignKey: "userId"})
 }
 export default Notes;
