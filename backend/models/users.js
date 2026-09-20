@@ -47,6 +47,7 @@ const Users = sequelize.define(
 );
 Users.associate = (models) => {
     Users.hasMany(models.RefreshTokens, { foreignKey: "userId" })
+    Users.hasMany(models.Notes, {foreignKey: "userId"})
 }
 
 
