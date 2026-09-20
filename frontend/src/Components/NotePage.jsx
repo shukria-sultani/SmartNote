@@ -24,10 +24,10 @@ export default function NotePage() {
       const notesArray = Array.isArray(prevNotes) ? prevNotes : [];
       return [newNote, ...notesArray];
     });
-     setModelOpen(false)
-          toast.success("Note successfully Added!", {
-        duration: 3000,
-      });
+    setModelOpen(false)
+    toast.success("Note successfully Added!", {
+      duration: 3000,
+    });
   };
   useEffect(() => {
     const allSubjects = Array.isArray(notes)
@@ -50,10 +50,10 @@ export default function NotePage() {
     searchTerm === ""
       ? filteredNotes
       : filteredNotes.filter(
-          (note) =>
-            note &&
-            note.content.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        (note) =>
+          note &&
+          note.content.toLowerCase().includes(searchTerm.toLowerCase())
+      );
   // Handle delete confimation
   const [noteToDeleteId, setNoteToDeleteId] = useState(null);
 
@@ -78,26 +78,26 @@ export default function NotePage() {
   };
 
 
-const {t} = useTranslation()
+  const { t } = useTranslation()
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
-<Header></Header>
-{
-  (Array.isArray(notes) && notes.length > 0) ? (
-         <div className="add-note">
-        <button
-          onClick={() => {
-            setModelOpen(true);
-          }}
-        >
-          <FaPlus></FaPlus>
-        </button>
-      </div>
-  ) :
-  null
-}
-   
+      <Header></Header>
+      {
+        (Array.isArray(notes) && notes.length > 0) ? (
+          <div className="add-note">
+            <button
+              onClick={() => {
+                setModelOpen(true);
+              }}
+            >
+              <FaPlus></FaPlus>
+            </button>
+          </div>
+        ) :
+          null
+      }
+
 
       {isModalOpen && (
         <div className="noteFom-modal">
@@ -107,41 +107,41 @@ const {t} = useTranslation()
             }}
             onSubmit={storeNotes}
             buttonText={t("add_note")}
-           formTitle={t("add_title")}></AddNote>
+            formTitle={t("add_title")}></AddNote>
         </div>
       )}
-   {(Array.isArray(notes) && notes.length > 0) || uniqueSubjects.length > 0 ? (
-    <div className="search-filter">
-        <Search setSearch={setSearchTerm}></Search>
-        <Filter subjects={uniqueSubjects} setFilter={setFilterTerm}></Filter>
-    </div>
-) : null}
+      {(Array.isArray(notes) && notes.length > 0) || uniqueSubjects.length > 0 ? (
+        <div className="search-filter">
+          <Search setSearch={setSearchTerm}></Search>
+          <Filter subjects={uniqueSubjects} setFilter={setFilterTerm}></Filter>
+        </div>
+      ) : null}
 
 
- {
-   (Array.isArray(searchResult) && searchResult.length === 0 ) ? (
-    <NoNote
-      openForm={()=> {setModelOpen(true)}}
-    ></NoNote>
-   ):
-   (
-    <div className="notes-card-container">
-        {Array.isArray(searchResult) &&
-          searchResult.map((note, index) => {
-            if (!note || typeof note !== "object") return null;
-            const uniqueID = note.id ? note.id : `${note.title}-${index}`;
-            return (
-              <NoteCard
-                key={uniqueID}
-                note={note}
-                onDelete={handleDeleteClick}
-              ></NoteCard>
-            );
-          })}
-      </div>
-   )
- }
-      
+      {
+        (Array.isArray(searchResult) && searchResult.length === 0) ? (
+          <NoNote
+            openForm={() => { setModelOpen(true) }}
+          ></NoNote>
+        ) :
+          (
+            <div className="notes-card-container">
+              {Array.isArray(searchResult) &&
+                searchResult.map((note, index) => {
+                  if (!note || typeof note !== "object") return null;
+                  const uniqueID = note.id ? note.id : `${note.title}-${index}`;
+                  return (
+                    <NoteCard
+                      key={uniqueID}
+                      note={note}
+                      onDelete={handleDeleteClick}
+                    ></NoteCard>
+                  );
+                })}
+            </div>
+          )
+      }
+
       <DeleteModal
         noteId={noteToDeleteId}
         onConfirm={confirmDeletion}

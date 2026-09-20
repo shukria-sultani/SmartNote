@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslationContext';
 export default function Header(){
 const [showMenu, setShowMenu] = useState(false);
-const {language, t, setLanguage, dir} = useTranslation()
+const {language, t, setLanguage} = useTranslation()
 const handleLanguageToggle = (e)=>{
      setLanguage(e.target.value)
 }
