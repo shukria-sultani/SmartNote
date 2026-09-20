@@ -8,7 +8,7 @@ import AddNote from "./AddNote";
 import { usePDF } from "react-to-pdf";
 import { MdSummarize } from "react-icons/md";
 import { FaQuestionCircle } from "react-icons/fa";
-import { Edit3 } from "lucide-react";
+import { LuPen } from "react-icons/lu";
 import Quiz from "./Quiz";
 import { useTranslation } from "../hooks/useTranslationContext";
 
@@ -235,7 +235,7 @@ useEffect(()=>{
             setModelOpen(true);
           }}
         >
-          <Edit3 style={{ width: "18px", height: "auto" }}></Edit3> {t("edit_note")}
+          <LuPen style={{ width: "18px", height: "auto" }}></LuPen> {t("edit_note")}
         </button>
 
         <button onClick={handleTakeQuizClick} disabled={quizLoading}>

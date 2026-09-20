@@ -3,12 +3,13 @@ import Footer from "./Footer"
 import { FaLightbulb, FaMessage } from "react-icons/fa6";
 import { FaBrain } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
-import { GoalIcon } from "lucide-react";
-import { QuoteIcon } from "lucide-react";
-import { StarIcon } from "lucide-react";
-import { Code } from "lucide-react";
+import { LuGoal } from "react-icons/lu";
+import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteRight } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { FcCollaboration } from "react-icons/fc";
-import { Paintbrush2 } from "lucide-react";
+import { FaPaintBrush } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 
 import contactImg from "../assets/images/contact.jpg";
@@ -70,19 +71,19 @@ const handleSubmit = async(e)=>{
 
         <div className="philosophy">
           <h2>
-            <StarIcon
+            <FaStar
               className="star"
               style={{
                 color: "rgb(255, 158, 1)",
                 width: "40px",
                 height: "auto",
               }}
-            ></StarIcon>
+            ></FaStar>
             {t("philosophy")}
           </h2>
           <div>
             <div>
-              <GoalIcon className="goalIcon"></GoalIcon>
+              <LuGoal className="goalIcon"></LuGoal>
               <h3>{t("philosophy_1")}</h3>
             </div>
             <div>
@@ -98,21 +99,21 @@ const handleSubmit = async(e)=>{
 
         <div className="creater">
           <h2>
-            <Code
+            <FaCode
               style={{
                 color: "rgb(255, 158, 1)",
                 width: "40px",
                 height: "auto",
               }}
-            ></Code>{" "}
+            ></FaCode>{" "}
            {t("developer")}
           </h2>
           <div>
-            <QuoteIcon></QuoteIcon>
+            <FaQuoteLeft></FaQuoteLeft>
             <p>
               {t("developer_info")}
             </p>
-            <QuoteIcon></QuoteIcon>
+            <FaQuoteRight></FaQuoteRight>
           </div>
         </div>
 
@@ -134,23 +135,23 @@ const handleSubmit = async(e)=>{
             </p>
             <div>
               <div>
-                <Code
+                <FaCode
                   style={{
                     color: "rgb(166, 207, 1)",
                     width: "70px",
                     height: "auto",
                   }}
-                ></Code>{" "}
+                ></FaCode>{" "}
                {t("code")}
               </div>
               <div>
-                <Paintbrush2
+                <FaPaintBrush
                   style={{
                     color: "rgb(166, 207, 1)",
                     width: "60px",
                     height: "auto",
                   }}
-                ></Paintbrush2>
+                ></FaPaintBrush>
                {t("design")}
               </div>
             </div>

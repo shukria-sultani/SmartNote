@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { LuNotebookText } from 'react-icons/lu';
 import { FaHome } from 'react-icons/fa';
 import { FaExclamationCircle } from 'react-icons/fa';
-import { MenuIcon } from 'lucide-react';
+import { BiMenu } from 'react-icons/bi';
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslationContext';
 export default function Header(){
@@ -25,7 +25,7 @@ const activeLink = ({isActive}) =>
               <h1><LuNotebookText style={{"fontSize": "1.4rem"}} className='noteIcon'></LuNotebookText> 
               {t("app_title")}</h1>
               <div className='menu-icon'>
-                  <MenuIcon onClick={handleMenuDisplay}></MenuIcon>
+                  <BiMenu onClick={handleMenuDisplay}></BiMenu>
               </div>
             
                   <div className={showMenu ? 'nav-links show' : 'nav-links'}>
