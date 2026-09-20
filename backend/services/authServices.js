@@ -100,8 +100,8 @@ export const rotateRefreshToken =  async(token) =>{
       throw new Error(404, "User not found!")
     }
     const credentials = {id: userId, email: user.email}
-   const {accessToken, refreshToken} = generateTokens(credentials);
-   
+    const {accessToken, refreshToken} = generateTokens(credentials);
+   await storedToken.destroy();
    return {
     accessToken,
     refreshToken
