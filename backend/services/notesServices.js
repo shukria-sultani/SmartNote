@@ -13,3 +13,17 @@ export const createNote = async(payload) =>{
       )
       return note; 
 }
+export const getNotes = async(userId)=>{
+   if(!userId){
+      throw new AppError(400, "User id is required!")
+   }
+   const convertUserIdToNumber = Number(userId);
+   const notes = await Notes.findAll(
+    {
+      where: {
+         userId: convertUserIdToNumber,
+         isDeleted: false
+      }}
+   )
+   return notes;
+}
