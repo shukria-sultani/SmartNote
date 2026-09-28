@@ -1,8 +1,7 @@
 import express from "express"
 const router = express.Router();
-import { createNewNote, getAllNotes, editANote } from "../controllers/notesController.js";
+import { createNewNote, getAllNotes, editANote, softDeleteANote } from "../controllers/notesController.js";
 import { authenticateUser } from "../middlewares/authMiddleware.js";
-import { editNote } from "../services/notesServices.js";
  router.post(
     "/create-note",
     authenticateUser,
@@ -18,5 +17,10 @@ router.put(
     "/edit-note/:id",
     authenticateUser,
     editANote
+)
+router.patch(
+    "/soft-delete/:id",
+    authenticateUser,
+    softDeleteANote
 )
 export default router;

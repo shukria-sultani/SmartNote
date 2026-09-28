@@ -1,5 +1,5 @@
 
-import { createNote, editNote, getNotes } from "../services/notesServices.js"
+import { createNote, editNote, getNotes, softDeleteNote } from "../services/notesServices.js"
 
 export const createNewNote = async (req, res) => {
     try {
@@ -50,6 +50,26 @@ export const editANote = async (req, res) => {
             {
                 success: true,
                 updatedNote
+            }
+        )
+    } catch (error) {
+        const statusCode = error.statusCode || 500
+        res.status(statusCode).json({
+            success: false,
+            statusCode,
+            message: error.message
+        })
+    }
+}
+
+export const softDeleteANote = async (req, res) => {
+    try {
+        const noteId = req.params.id
+        const deleteNote = softDeleteNote(noteId)
+        res.status(200).json(
+            {
+                success: true,
+                message: "Note moved to trash successfully!"
             }
         )
     } catch (error) {

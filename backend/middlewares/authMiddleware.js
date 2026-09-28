@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken"
 export const authenticateUser = async(req, res, next)=>{
    const authHeader = req.headers.authorization;
   if(!authHeader){
-    throw new AppError(401, "Token not found!")
+    res.status(401).json({success: false, message: "Token not found!"})
   }
  try {
  const token = req.headers.authorization.split(" ")[1];
