@@ -80,3 +80,20 @@ export const softDeleteNote = async (noteId) => {
       }
    )
 }
+export const hardDeleteNote = async(noteId)=>{
+   if (!noteId) {
+      throw new AppError(400, "Note id is required!")
+   }
+   const note = await Notes.findOne(
+      {
+         where: {
+            id: noteId,
+         }
+      }
+   )
+   if(!note){
+      throw new AppError(404, "Note not found!")
+   }
+   await note.destroy();
+
+}
