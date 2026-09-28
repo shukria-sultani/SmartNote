@@ -31,7 +31,6 @@ export const getNotes = async(userId)=>{
 
 export const editNote = async(payload)=>{
    const {noteId} = payload
-   console.log("note id in service", noteId)
    if(!noteId){
       throw new AppError(400, "Note id is required!")
    }

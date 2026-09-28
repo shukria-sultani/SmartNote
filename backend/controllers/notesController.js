@@ -6,7 +6,6 @@ export const createNewNote = async (req, res) => {
         const { title, subject, note_text } = req.body;
         const userId = req.userId;
         const payload = { userId, title, subject, note_text };
-        console.log(payload)
         const note = await createNote(payload);
         res.status(201).json(
             {
@@ -44,7 +43,6 @@ export const editANote = async (req, res) => {
     try {
         const userId = req.userId
         const noteId = req.params.id
-        console.log("noteid", noteId)
         const { title, subject, note_text } = req.body
         const payload = { noteId, userId, title, subject, note_text }
         const updatedNote = await editNote(payload);
