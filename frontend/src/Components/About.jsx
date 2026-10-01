@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Sidebar from "./Sidebar";
 import Footer from "./Footer"
 import { FaLightbulb, FaMessage } from "react-icons/fa6";
 import { FaBrain } from "react-icons/fa";
@@ -54,7 +54,7 @@ const handleSubmit = async(e)=>{
 
   return (
     <>
-      <Header></Header>
+      <Sidebar></Sidebar>
       <Toaster></Toaster>
       <div className="about-container">
         <div className="vision">
