@@ -5,7 +5,7 @@ import WhySmartNote from "./WhySmartNote"
 export default function HomePage(){
     return(
         <>
-         <Sidebar></Sidebar>
+     
           <Hero></Hero>
           <WhySmartNote></WhySmartNote>
            <Footer></Footer>

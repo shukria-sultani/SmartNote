@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-
+import MainLayout from "./layouts/MainLayout.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { TranslationProvider } from "./hooks/useTranslationContext.jsx";
 import { lazy, Suspense } from "react";
@@ -19,11 +19,17 @@ function App() {
         <Router>
           <Suspense fallback={<Loader />}>
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              {/* <Route path="/" element={<HomePage />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/read/:noteId" element={<NoteReadMode />} />
               <Route path="/about" element={<About />} />
-              <Route path="/notes" element={<NotePage />} />
+              <Route path="/notes" element={<NotePage />} /> */}
+              <Route element={<MainLayout />}>
+                <Route path="/" element={<HomePage />} />
+              <Route path="/read/:noteId" element={<NoteReadMode />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/notes" element={<NotePage />} /> 
+              </Route>
             </Routes>
           </Suspense>
         </Router>

@@ -54,7 +54,7 @@ const handleSubmit = async(e)=>{
 
   return (
     <>
-      <Sidebar></Sidebar>
+    
       <Toaster></Toaster>
       <div className="about-container">
         <div className="vision">

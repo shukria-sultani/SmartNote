@@ -82,7 +82,7 @@ export default function NotePage() {
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
-      <Sidebar></Sidebar>
+  
       {
         (Array.isArray(notes) && notes.length > 0) ? (
           <div className="add-note">
