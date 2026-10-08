@@ -100,7 +100,7 @@ export default function NotePage() {
 
 
       {isModalOpen && (
-        <div className="noteFom-modal">
+        <div className="fixed inset-0 z-50 flex items-center w-full justify-center bg-black/40 p-4">
           <AddNote
             closeModel={() => {
               setModelOpen(false);

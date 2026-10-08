@@ -12,7 +12,7 @@ export default function NoNote({openForm}){
               <p>{t("capture_thougths")}</p>
             </div>
               <button  
-              className="bg-orange-400 px-3 py-2 transition-all duration-300 rounded-full hover:bg-secondary"  
+              className="bg-orange-400 text-white px-3 py-2 transition-all duration-300 rounded-full hover:bg-secondary hover:text-black"  
               onClick={openForm}>
               <FaPlus className="inline-block me-2"></FaPlus> 
               {t("add_note")}
