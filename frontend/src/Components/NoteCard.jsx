@@ -40,12 +40,12 @@ export default function NoteCard({ note, onDelete }) {
           {t("last_modified")}: {note.date}
         </small>
 
-        <h4 className="mt-4 text-base font-semibold text-gray-700">
+        <h4 className="mt-4 text-md font-semibold text-gray-700">
           <span className="text-primary">{t("subject")}:</span>{" "}
           {note.subject}
         </h4>
 
-        <h4 className="mt-2 text-lg font-bold text-gray-800">
+        <h4 className="mt-2 text-md font-bold text-gray-800">
           <span className="text-secondary">{t("title")}:</span>{" "}
           {note.title}
         </h4>
