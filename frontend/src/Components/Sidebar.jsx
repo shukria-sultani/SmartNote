@@ -8,6 +8,7 @@ import {
 import { BiMenu, BiChevronRight } from "react-icons/bi";
 import { useState } from "react";
 import { useTranslation } from "../hooks/useTranslationContext";
+import UserProfile from "./UserProfile";
 
 const navItems = [
   { to: "/recent", icon: LuClock, labelKey: "Recent" },
@@ -97,7 +98,7 @@ export default function Sidebar() {
         <div
           className={`
             flex
-            h-20
+            h-auto
             shrink-0
             items-center
             border-b-2
@@ -109,36 +110,48 @@ export default function Sidebar() {
             }
           `}
         >
-
-          <h1
-            className={`
-              truncate
-              text-[25px]
-              font-bold
-              text-gray-800
-
-              ${collapsed ? "lg:hidden" : ""}
-            `}
-          >
-            {t("app_title")}
-          </h1>
-
+         { !collapsed && (
+            <UserProfile ></UserProfile>
+            )
+         }
+       
 
           <button
-            onClick={() => setShowMenu(false)}
-            aria-label="Close menu"
-            className="
-              shrink-0
-              rounded-lg
-              p-1.5
-              text-gray-700
-              transition-colors
-              hover:bg-lime-400
-              hover:text-orange-400
-              lg:hidden
-            "
+           onClick={() => setShowMenu(false)}
+           aria-label="Close menu"
+           className={
+            `
+            flex
+            absolute
+            end-0
+            z-50
+            h-10
+            w-10
+            translate-x-1/2
+            items-center
+            justify-center
+            rounded-full
+            text-center
+            bg-orange-400
+            text-white
+            shadow-md
+            transition-all
+            ${
+             !showMenu &&(
+               "hidden"
+             ) 
+            }
+          `}
           >
-            <BiMenu className="text-2xl" />
+            <BiChevronRight
+            className={`
+              text-2xl
+              transition-transform
+              duration-300
+             rotate-180
+          
+            `}
+          />
           </button>
         </div>
 
