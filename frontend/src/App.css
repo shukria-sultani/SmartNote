@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@theme {
+  --color-primary: rgb(255, 158, 1);
+  --color-secondary: rgb(166,207,1);
+}
 * {
   box-sizing: border-box;
   font-family: "Nunito", Calibri, sans-serif;
@@ -6,7 +10,9 @@
 button{
   cursor: pointer;
 }
-/* .sidebar {
+
+/*
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
