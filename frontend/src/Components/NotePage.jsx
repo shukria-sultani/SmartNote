@@ -125,7 +125,7 @@ export default function NotePage() {
           ></NoNote>
         ) :
           (
-            <div className="notes-card-container">
+            <div className="grid  grid-cols-1 lg:grid-cols-3 gap-5 p-5 ">
               {Array.isArray(searchResult) &&
                 searchResult.map((note, index) => {
                   if (!note || typeof note !== "object") return null;
