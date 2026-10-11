@@ -6,11 +6,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { TranslationProvider } from "./hooks/useTranslationContext.jsx";
 import { lazy, Suspense } from "react";
 import Loader from "./Components/Loader.jsx";
-const HomePage = lazy(() => import("./Components/HomePage.jsx"));
+
 const NotePage = lazy(() => import("./Components/NotePage.jsx"));
 const NotFound = lazy(() => import("./Components/NotFound.jsx"));
 const NoteReadMode = lazy(() => import("./Components/NoteReadMode.jsx"));
-const About = lazy(() => import("./Components/About.jsx"));
+
 
 function App() {
   return (
@@ -19,15 +19,13 @@ function App() {
         <Router>
           <Suspense fallback={<Loader />}>
             <Routes>
-              {/* <Route path="/" element={<HomePage />} />
+              {/* 
               <Route path="*" element={<NotFound />} />
               <Route path="/read/:noteId" element={<NoteReadMode />} />
-              <Route path="/about" element={<About />} />
               <Route path="/notes" element={<NotePage />} /> */}
               <Route element={<MainLayout />}>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<NotePage />} />
               <Route path="/read/:noteId" element={<NoteReadMode />} />
-              <Route path="/about" element={<About />} />
               <Route path="/notes" element={<NotePage />} /> 
               </Route>
             </Routes>
