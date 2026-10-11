@@ -7,6 +7,8 @@ import { TranslationProvider } from "./hooks/useTranslationContext.jsx";
 import { lazy, Suspense } from "react";
 import Loader from "./Components/Loader.jsx";
 import Login from "./Components/auth/Login.jsx";
+import AuthBackground from "./layouts/AuthLayout.jsx";
+import AuthLayout from "./layouts/AuthLayout.jsx";
 
 const NotePage = lazy(() => import("./Components/NotePage.jsx"));
 const NotFound = lazy(() => import("./Components/NotFound.jsx"));
@@ -29,7 +31,9 @@ function App() {
                 <Route path="/read/:noteId" element={<NoteReadMode />} />
                 <Route path="/notes" element={<NotePage />} />
               </Route>
-              <Route path="/login" element={<Login />} />
+              <Route element={<AuthLayout />}>
+                <Route path="login" element={<Login />} />
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
